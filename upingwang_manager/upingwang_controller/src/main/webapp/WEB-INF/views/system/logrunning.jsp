@@ -14,7 +14,7 @@
 <body>
 <div class="main-wrap">
     <blockquote class="layui-elem-quote fhui-admin-main_hd">
-        <h2>运行日志列表</h2>
+        <h2>运行日志</h2>
     </blockquote>
     <div class="y-role">
         <div class="search-bar">

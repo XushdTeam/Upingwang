@@ -13,7 +13,7 @@ import com.upingwang.pojo.SystemLog;
 public interface SystemLogService {
 
 
-    long insertLog(SystemLog systemLog);
+    long writeLog(SystemLog systemLog);
 
     PageResult getLogRunList(PageSearchParam param, int type);
 

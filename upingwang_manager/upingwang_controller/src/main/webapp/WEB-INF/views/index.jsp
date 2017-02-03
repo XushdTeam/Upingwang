@@ -53,7 +53,7 @@
                 <shiro:hasRole name="admin">
                     <li class="layui-nav-item ">
                         <a href="javascript:;" data-fid="2">
-                            <i class="fa1 fa-cog"></i>
+                            <i class="fa1 fa-television"></i>
                             <cite>系统</cite>
                         </a>
                     </li>
@@ -92,7 +92,7 @@
             <ul class="layui-tab-title" id="admin-tab">
                 <li class="layui-this">
                     <i class="layui-icon" style="top: 2px; font-size: 16px;">&#xe609;</i>
-                    <cite>Upingwang Home</cite>
+                    <cite>Upingwang后台管理</cite>
                 </li>
             </ul>
             <div class="layui-tab-content" id="admin-tab-container" style="min-height: 150px; padding: 0px;">

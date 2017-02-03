@@ -88,7 +88,7 @@ public class SystemLogAspect implements Ordered {
             systemLog.setUserName(systemUser.getUserName());
             systemLog.setLogTime(new Date());
             //保存数据库
-            systemLogService.insertLog(systemLog);
+            systemLogService.writeLog(systemLog);
             System.out.println("=====前置通知结束=====");
         }  catch (Exception e) {
             //记录本地异常日志
@@ -138,7 +138,7 @@ public class SystemLogAspect implements Ordered {
             systemLog.setLogTime(new Date());
             systemLog.setRequestIp(ip);
             //保存数据库
-            systemLogService.insertLog(systemLog);
+            systemLogService.writeLog(systemLog);
             System.out.println("=====异常通知结束=====");
         }  catch (Exception ex) {
             //记录本地异常日志

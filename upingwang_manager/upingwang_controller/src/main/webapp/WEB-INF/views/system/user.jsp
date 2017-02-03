@@ -14,7 +14,7 @@
 <body>
 <div class="main-wrap">
     <blockquote class="layui-elem-quote fhui-admin-main_hd">
-        <h2>用户列表</h2>
+        <h2>用户管理</h2>
     </blockquote>
     <div class="y-role">
         <div class="search-bar">
@@ -43,7 +43,7 @@
                 <div class="box-wrap">
                     <a class="menu-btn"></a>
                     <div class="l-list">
-                        <a class="layui-btn layui-btn-small do-action" data-type="doAddEdit"  data-href="${handleUrl}/null"><i class="fa fa-plus"></i></i>注册新用户</a>
+                        <a class="layui-btn layui-btn-small do-action" data-type="doAddEdit"  data-href="${handleUrl}/new"><i class="fa fa-plus"></i></i>注册新用户</a>
                         <a class="layui-btn layui-btn-small do-action" data-type="doRefresh" data-href="${baseUrl}"><i class="fa fa-refresh"></i>刷新</a>
                     </div>
                 </div>
@@ -90,7 +90,7 @@
                         </td>
                         <td>
                             <a class="layui-btn layui-btn-small do-action" data-type="doAddEdit" data-href="${handleUrl}/{{item.id}}"><i class="icon-edit  fa fa-pencil-square-o"></i>编辑</a>
-                            <a class="layui-btn layui-btn-small layui-btn-danger do-action" data-type="doDelete" data-text="确定删除<span class=red>{{item.roleName}}</span>吗？" data-href="${deleteUrl}/{{item.id}}"><i class="icon-trash-o  fa fa-trash-o"></i>删除</a>
+                            <a class="layui-btn layui-btn-small layui-btn-danger do-action" data-type="doDelete" data-text="确定删除<span class=red>{{item.userName}}</span>吗？" data-href="${deleteUrl}/{{item.id}}"><i class="icon-trash-o  fa fa-trash-o"></i>删除</a>
                         </td>
                     </tr>
                     {{#  }); }}

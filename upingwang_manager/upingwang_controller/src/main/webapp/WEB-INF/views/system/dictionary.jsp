@@ -14,7 +14,7 @@
 <body>
 <div class="main-wrap">
     <blockquote class="layui-elem-quote fhui-admin-main_hd">
-        <h2>字典列表</h2>
+        <h2>数据字典</h2>
     </blockquote>
     <blockquote class="layui-elem-quote fhuaui-tip">字典管理，可以灵活配置系统字典数据，实时更新。随意修改会导致系统崩溃！</blockquote>
     <div class="y-role">

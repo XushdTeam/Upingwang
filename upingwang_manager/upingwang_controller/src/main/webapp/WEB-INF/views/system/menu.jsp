@@ -14,7 +14,7 @@
 <body>
 <div class="main-wrap">
     <blockquote class="layui-elem-quote fhui-admin-main_hd">
-        <h2>菜单列表</h2>
+        <h2>菜单管理</h2>
     </blockquote>
     <blockquote class="layui-elem-quote fhuaui-tip">菜单管理，可以灵活配置系统菜单，需要重新登录。</blockquote>
     <div class="y-role">

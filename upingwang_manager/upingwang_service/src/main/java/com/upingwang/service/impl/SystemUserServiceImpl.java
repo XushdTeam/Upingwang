@@ -55,7 +55,7 @@ public class SystemUserServiceImpl implements SystemUserService {
     public SystemUser getSystemUserByUserPhone(String userPhone) {
         SystemUserExample systemUserExample = new SystemUserExample();
         SystemUserExample.Criteria criteria = systemUserExample.createCriteria();
-        criteria.andUserPhoneEqualTo(userPhone);
+        criteria.andUserPhoneEqualTo(userPhone).andDelflagEqualTo(0);
         List<SystemUser> systemUsers = systemUserMapper.selectByExample(systemUserExample);
         if (systemUsers == null || systemUsers.size() == 0) return null;
         return systemUsers.get(0);

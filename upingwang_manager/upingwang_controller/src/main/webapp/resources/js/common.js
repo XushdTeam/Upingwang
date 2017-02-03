@@ -25,8 +25,10 @@ layui.define(['layer'], function (exports) {
                     obj.closeLoading();
                     if (data.status == 200) {
                         callback(null,data);
-                    }
-                    else {
+                    } else if (data.status == 401){
+                        //没有权限
+                        obj.layerAlertW("<span class=red>"+data.message+"</span>");
+                    } else {
                         callback(data.message);
                     }
                 },
@@ -72,6 +74,13 @@ layui.define(['layer'], function (exports) {
          */
         layerAlertE: function (text, title) {
             parent.layer.alert(text, { title: title, icon: 2, time: 5000, resize: false, zIndex: layer.zIndex, anim: Math.ceil(Math.random() * 6) });
+        },
+        /**
+         * 警告提示
+         * @param text
+         */
+        layerAlertW: function (text){
+            parent.layer.alert(text, { title: "警告", icon: 7, time: 5000, resize: false, zIndex: layer.zIndex, anim: Math.ceil(Math.random() * 6) });
         },
         /**
          * 信息提示

@@ -12,7 +12,10 @@ layui.use(['layer','common','element'], function () {
         upload = layui.upload,
         common = layui.common;
 
-
+    //修改tab文字
+    var title = $(".fhui-admin-main_hd").find("h2").text();
+    var tab = parent.document.getElementById("admin-tab");
+    $(tab).find(".layui-this").find("cite").text(title);
 
     /**
      * 绑定页面do-action事件

@@ -30,7 +30,7 @@ public class SystemLogServiceImpl implements SystemLogService {
 
 
     @Override
-    public long insertLog(SystemLog systemLog) {
+    public long writeLog(SystemLog systemLog) {
         return systemLogMapper.insertSelective(systemLog);
     }
 

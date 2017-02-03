@@ -1,12 +1,13 @@
 <%--
   Created by IntelliJ IDEA.
-  User: Administrator
+  User: Xushd
   Date: 2017/1/30 0030
   Time: 下午 9:29
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <html>
 <head>
     <title>用户信息修改</title>
@@ -14,10 +15,15 @@
 </head>
 <body>
 <div class="main-wrap" data-href="${baseUrl}">
+    <blockquote class="layui-elem-quote fhui-admin-main_hd">
+        <h2>${handle}</h2>
+    </blockquote>
     <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
         <ul class="layui-tab-title">
             <li class="layui-this">基本资料</li>
+            <shiro:hasPermission name="/user/advert">
             <li>头像</li>
+            </shiro:hasPermission>
             <li>密码</li>
             <li>角色</li>
         </ul>
@@ -61,6 +67,7 @@
                     </form>
             </div>
             <!-- 头像-->
+            <shiro:hasPermission name="/user/advert">
             <div class="layui-form layui-form-pane layui-tab-item">
                 <div class="layui-form-item">
                     <div class="avatar-add">
@@ -73,6 +80,7 @@
                     </div>
                 </div>
             </div>
+            </shiro:hasPermission>
             <!-- 修改密码-->
             <div class="layui-form layui-form-pane layui-tab-item">
                 <form>
@@ -179,7 +187,6 @@
                 $(".loading").show();
             },
             success: function(res) {
-                console.log(res);
                 $(".loading").hide();
                 if (res.status == 200) {
                     common.layerAlertS(res.message);

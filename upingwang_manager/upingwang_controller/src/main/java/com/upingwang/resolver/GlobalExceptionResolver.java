@@ -15,7 +15,7 @@ import java.io.PrintWriter;
 
 /**
  * show
- *
+ * 全局错误拦截器
  * @author Xushd
  * @since 2017/1/22 0022 下午 3:42
  */

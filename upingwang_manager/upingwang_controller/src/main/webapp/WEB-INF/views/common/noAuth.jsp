@@ -1,38 +1,73 @@
 <%--
   Created by IntelliJ IDEA.
-  User: Administrator
-  Date: 2017/1/22 0022
-  Time: 上午 11:13
+  User: Xushd
+  Date: 2017/2/3
+  Time: 20:35
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>No Permission</title>
-    <link href="/resources/css/errorpage.css" rel="stylesheet">
+    <title>没有权限</title>
     <style>
-        *{ margin:0; padding:0; list-style:none;}
-        table{border-collapse:collapse;border-spacing:0;}
-        body,html{ height:100%; font-family:'微软雅黑'; overflow-y:hidden;}
-        .main{ width:60%; margin-left:20%; margin-right:20%; margin-top:10%;}
-        .main_left{ width:38%; margin-left:12%; margin-top:10%; float:left;}
-        .main_right{width:50%; float:left;}
-        .main_radius{ padding-top:4%; width:75%; height:130px; border-radius:50%; background:#fef2ec; font-size:18px;text-align:center;}
+        body {
+            margin: 0px auto;
+            width: 950px;
+            margin: 0 auto;
+            font: 11px "lucida grande", arial, verdana, sans-serif;
+            background: url(/resources/images/body_bg.jpg) #d4d4d4 repeat-x;
+            padding-top: 80px;
+        }
 
+        div.error404_main {
+            font-family: 'microsoft yahei';
+            font-size: 16px;
+            position: relative;
+            margin: 31px 21px 0px;
+            width: 950px;
+            background: url(/resources/images/error.jpg) no-repeat;
+            height: 500px
+        }
+
+        span.main_txt {
+            position: absolute;
+            text-align: center;
+            padding-bottom: 0px;
+            padding-left: 0px;
+            width: 150px;
+            padding-right: 0px;
+            display: block;
+            height: 63px;
+            color: #1d1d1d;
+            top: 223px;
+            padding-top: 2px;
+            left: 745px
+        }
+
+        span.main_txt span {
+            margin: 0px 0px 2px;
+            display: block
+        }
+
+        span.main_txt a {
+            color: #1d1d1d
+        }
+
+        div.error404_guide {
+            position: relative;
+            background-color: #b4b4b4;
+            margin: 0px 21px;
+            width: 950px;
+            height: 84px
+        }
     </style>
 </head>
 <body>
-<div class="main">
-    <div class="main_left"><img src="/resources/images/noAuth.png" width="229" height="128"/></div>
-    <div class="main_right">
-        <div class="main_radius">
-            <p class="main_p">没有权限哦！！！</p>
-            <p class="main_p">您的权限不足啊，这可咋整！</p>
-        </div>
-        <div class="text-left" style="margin-top:10%; margin-left:8%;">
-            <a href="/index" class="button bg-yellow">返回首页</a>
-        </div>
-    </div>
+<div class="error404_main">
+<span class="main_txt">
+    <span>您没有访问权限哦！</span>
+    <span>请联系管理员</span>
+</span>
 </div>
 </body>
 </html>

@@ -53,12 +53,12 @@ layui.define(['element', 'common'], function (exports) {
 	 * 查询tab是否存在，如果存在则返回索引值，不存在返回-1
 	 * @param {String} 标题
 	 */
-    Tab.prototype.exists = function (title) {
+    Tab.prototype.exists = function (href) {
         var that = ELEM.titleBox === undefined ? this.init() : this,
 			tabIndex = -1;
         ELEM.titleBox.find('li').each(function (i, e) {
             var $cite = $(this).children('cite');
-            if ($cite.text() === title) {
+            if ($cite.data("href") === href) {
                 tabIndex = i;
             };
         });
@@ -70,7 +70,7 @@ layui.define(['element', 'common'], function (exports) {
 	 */
     Tab.prototype.tabAdd = function (data) {
         var that = this;
-        var tabIndex = that.exists(data.title);
+        var tabIndex = that.exists(data.href);
         if (tabIndex === -1) {
             globalTabIdIndex++;
             var content = '<iframe src="' + data.href + '" data-id="' + globalTabIdIndex + '"></iframe>';
@@ -82,7 +82,7 @@ layui.define(['element', 'common'], function (exports) {
                     title += '<i class="layui-icon">' + data.icon + '</i>';
                 }
             }
-            title += '<cite>' + data.title + '</cite>';
+            title += '<cite data-href="'+data.href+'">' + data.title + '</cite>';
             if (that.config.closed) {
                 title += '<i class="layui-icon layui-unselect layui-tab-close" data-id="' + globalTabIdIndex + '">&#x1006;</i>';
             }
