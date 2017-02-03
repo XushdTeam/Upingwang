@@ -92,7 +92,7 @@
             <ul class="layui-tab-title" id="admin-tab">
                 <li class="layui-this">
                     <i class="layui-icon" style="top: 2px; font-size: 16px;">&#xe609;</i>
-                    <cite>Upingwang后台管理</cite>
+                    <cite>Upingwang Home</cite>
                 </li>
             </ul>
             <div class="layui-tab-content" id="admin-tab-container" style="min-height: 150px; padding: 0px;">

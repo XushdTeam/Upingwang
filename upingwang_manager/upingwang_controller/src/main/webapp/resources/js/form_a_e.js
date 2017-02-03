@@ -85,7 +85,7 @@ layui.define(["common","form",'util','sha256'],function (exports) {
         userInit:function(){
             private.formOn(function(formdata){
                 formdata.field.password = sha256.sha256_digest("123456");
-                private.submit(formdata.field);
+                private.submit(formdata);
                 return false;
             });
             private.fixbar();

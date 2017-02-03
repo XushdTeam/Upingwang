@@ -16,7 +16,6 @@
     <blockquote class="layui-elem-quote fhui-admin-main_hd">
         <h2>权限列表</h2>
     </blockquote>
-    <blockquote class="layui-elem-quote fhuaui-tip">系统权列表。</blockquote>
     <div class="y-role">
         <!--工具栏-->
         <div id="floatHead" class="toolbar-wrap">

@@ -52,7 +52,7 @@ public class SystemLogServiceImpl implements SystemLogService {
             criteria.andLogTimeLessThanOrEqualTo(TimeUtils.getDate(param.getFiled("timeEnd")));
         }
         criteria.andLogTypeEqualTo(type);
-        example.setOrderByClause("id");
+        example.setOrderByClause("id desc");
         List<SystemLog> logList = systemLogMapper.selectByExample(example);
         PageInfo pageInfo = new PageInfo(logList);
 

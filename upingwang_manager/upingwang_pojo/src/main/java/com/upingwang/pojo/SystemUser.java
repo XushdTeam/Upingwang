@@ -3,12 +3,19 @@ package com.upingwang.pojo;
 import org.hibernate.validator.constraints.NotBlank;
 
 import java.util.Date;
+import java.util.List;
 
 public class SystemUser {
 
     // 附加字段
     @NotBlank(message = "验证码为空")
     private String verifyCode;
+
+
+
+
+    //附加字段
+    private List<String> roleName;
 
 
 
@@ -36,6 +43,11 @@ public class SystemUser {
     private Date createTime;
 
     private String remark;
+
+
+
+
+
 
     public Long getId() {
         return id;
@@ -132,4 +144,13 @@ public class SystemUser {
     public void setVerifyCode(String verifyCode) {
         this.verifyCode = verifyCode;
     }
+
+    public List<String> getRoleName() {
+        return roleName;
+    }
+
+    public void setRoleName(List<String> roleName) {
+        this.roleName = roleName;
+    }
+
 }

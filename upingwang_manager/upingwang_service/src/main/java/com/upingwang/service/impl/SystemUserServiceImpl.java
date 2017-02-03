@@ -9,11 +9,10 @@ import com.upingwang.common.result.JsonResult;
 import com.upingwang.common.target.SystemServiceLog;
 import com.upingwang.common.utils.IDUtils;
 import com.upingwang.common.utils.SqlUtils;
+import com.upingwang.mapper.SystemRoleMapper;
 import com.upingwang.mapper.SystemUserMapper;
 import com.upingwang.mapper.SystemUserRoleMapper;
-import com.upingwang.pojo.SystemUser;
-import com.upingwang.pojo.SystemUserExample;
-import com.upingwang.pojo.SystemUserRoleExample;
+import com.upingwang.pojo.*;
 import com.upingwang.service.SystemUserService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +41,8 @@ public class SystemUserServiceImpl implements SystemUserService {
     @Autowired
     private SystemUserRoleMapper userRoleMapper;
 
+    @Autowired
+    private SystemRoleMapper roleMapper;
 
 
     @Value("${IMAGE_BASE_URL}")
@@ -74,8 +75,18 @@ public class SystemUserServiceImpl implements SystemUserService {
         if (param.getFiled("userPhone") != null) {
             criteria.andUserPhoneEqualTo(param.getFiled("userPhone"));
         }
+        criteria.andDelflagEqualTo(0);
         example.setOrderByClause("id DESC");
         List<SystemUser> list = systemUserMapper.selectByExample(example);
+        for (SystemUser user : list) {
+            List<SystemRole> roleList = roleMapper.getRoleByUserId(user.getId());
+            List<String> roleName = new ArrayList<>();
+            for (SystemRole role : roleList) {
+                roleName.add(role.getRoleName());
+            }
+            user.setRoleName(roleName);
+
+        }
         PageInfo pageInfo = new PageInfo(list);
 
         return new PageResult(pageInfo);
@@ -118,6 +129,7 @@ public class SystemUserServiceImpl implements SystemUserService {
             return OperateEnum.FAILE;
         }
     }
+
     @SystemServiceLog(module = "用户管理", methods = "用户头像修改")
     @Override
     public JsonResult userAdvertUpload(MultipartFile filedata, long userId) {
@@ -143,7 +155,7 @@ public class SystemUserServiceImpl implements SystemUserService {
             user.setUserAdvert(httpUrl);
             int res = systemUserMapper.updateByPrimaryKeySelective(user);
             if (res > 0) {
-                return JsonResult.build(200,OperateEnum.SUCCESS.getStateInfo(),httpUrl);
+                return JsonResult.build(200, OperateEnum.SUCCESS.getStateInfo(), httpUrl);
             } else {
                 return JsonResult.build(OperateEnum.FAILE);
             }
@@ -154,28 +166,28 @@ public class SystemUserServiceImpl implements SystemUserService {
         }
     }
 
-    @SystemServiceLog(module = "用户管理",methods = "密码修改")
+    @SystemServiceLog(module = "用户管理", methods = "密码修改")
     @Override
-    public JsonResult userPassUpdate(String pass,String pass0, String pass1, String pass2,long id) {
+    public JsonResult userPassUpdate(String pass, String pass0, String pass1, String pass2, long id) {
 
-        if(!StringUtils.equals(pass,pass0)){
+        if (!StringUtils.equals(pass, pass0)) {
             return JsonResult.build(OperateEnum.PASS_ERROR);
-        }else  if(!StringUtils.equals(pass1,pass2)){
+        } else if (!StringUtils.equals(pass1, pass2)) {
             return JsonResult.build(OperateEnum.PASS_NOT_EQUAIL);
-        }else {
+        } else {
             SystemUser user = new SystemUser();
             user.setId(id);
             user.setPassword(pass1);
             int ret = systemUserMapper.updateByPrimaryKeySelective(user);
-            if(ret>0){
+            if (ret > 0) {
                 return JsonResult.build(OperateEnum.SUCCESS);
-            }else{
+            } else {
                 return JsonResult.build(OperateEnum.FAILE);
             }
         }
     }
 
-    @SystemServiceLog(module = "用户管理",methods = "修改用户角色")
+    @SystemServiceLog(module = "用户管理", methods = "修改用户角色")
     @Override
     public OperateEnum updateUserRole(List role, long userId) {
 
@@ -184,9 +196,9 @@ public class SystemUserServiceImpl implements SystemUserService {
         SystemUserRoleExample.Criteria criteria = example.createCriteria();
         criteria.andUserIdEqualTo(userId);
         userRoleMapper.deleteByExample(example);
-        if(role == null){
+        if (role == null) {
             return OperateEnum.SUCCESS;
-        }else{
+        } else {
             //批量插入角色信息
             List<Map<String, String>> list = new ArrayList<>();
             for (Object id : role) {
@@ -196,11 +208,27 @@ public class SystemUserServiceImpl implements SystemUserService {
                 list.add(map);
             }
             int ret = userRoleMapper.insertUserRole(list);
-            if(ret>0){
+            if (ret > 0) {
                 return OperateEnum.SUCCESS;
-            }else{
+            } else {
                 return OperateEnum.FAILE;
             }
+        }
+
+    }
+
+    @SystemServiceLog(module = "用户管理", methods = "删除用户信息")
+    @Override
+    public OperateEnum deleteUserById(long userId) {
+
+        SystemUser user = new SystemUser();
+        user.setId(userId);
+        user.setDelflag(1);
+        int ret = systemUserMapper.updateByPrimaryKeySelective(user);
+        if (ret > 0) {
+            return OperateEnum.SUCCESS;
+        } else {
+            return OperateEnum.FAILE;
         }
 
     }

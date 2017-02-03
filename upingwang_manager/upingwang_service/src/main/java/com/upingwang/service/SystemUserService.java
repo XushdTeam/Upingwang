@@ -74,8 +74,16 @@ public interface SystemUserService {
     /**
      * 用户修改角色
      * @param role
-     * @param roleId
+     * @param userId
      * @return
      */
     OperateEnum updateUserRole(List role, long userId);
+
+
+    /**
+     * 删除用户信息
+     * @param userId
+     * @return
+     */
+    OperateEnum deleteUserById(long userId);
 }

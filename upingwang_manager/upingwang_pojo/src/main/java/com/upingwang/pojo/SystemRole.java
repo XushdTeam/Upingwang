@@ -99,4 +99,6 @@ public class SystemRole {
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
+
+
 }

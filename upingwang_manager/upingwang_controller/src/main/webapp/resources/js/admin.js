@@ -4,7 +4,7 @@
  */
 
 
-layui.define(['layer', 'layer', 'common', 'navbar', 'tab','sha256'], function(exports){
+layui.define(['layer', 'common', 'navbar', 'tab','sha256'], function(exports){
     var $ = layui.jquery,
         layer = layui.layer,
         common = layui.common,
@@ -71,7 +71,7 @@ layui.define(['layer', 'layer', 'common', 'navbar', 'tab','sha256'], function(ex
                  * 锁屏
                  */
                 doLock:function(){
-                    var lockIndex = layer.open({
+                    layer.open({
                         title: false,
                         type: 1,
                         closeBtn: 0,
@@ -106,24 +106,23 @@ layui.define(['layer', 'layer', 'common', 'navbar', 'tab','sha256'], function(ex
                                     });
                                     return;
                                 }
-                                unlock(userName, pwd);
-                            });
-                            /**
-                             * 解锁操作方法
-                             * @param {String} 用户名
-                             * @param {String} 密码
-                             */
-                            var unlock = function(un, pwd) {
-                               
                                 pwd = sha256.sha256_digest(pwd);
-                                common.ajax("/lock/"+un+"/"+pwd,"POST","json",{},function (err, res) {
-                                    if(err){
-                                        //lockIndex.anim();
-                                    }else {
-                                        layer.close(lockIndex);
+                                $.ajax({
+                                    url: "/lock/" + userName + "/" + pwd,
+                                    type: "POST",
+                                    dataType: "json",
+                                    data: {},
+                                    success: function (data, startic) {
+                                        if (data.status == 200) {
+                                            layer.close(lockIndex);
+                                        }
+                                        else {
+                                            layer.msg(data.message, {icon: 2, time: 1000});
+                                        }
                                     }
                                 });
-                            };
+                            });
+
                         }
                     });
 

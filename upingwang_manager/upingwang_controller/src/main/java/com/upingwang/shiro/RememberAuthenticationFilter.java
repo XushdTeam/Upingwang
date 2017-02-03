@@ -3,6 +3,7 @@ package com.upingwang.shiro;
 import com.upingwang.pojo.SystemUser;
 import com.upingwang.service.SystemUserService;
 import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 import org.apache.shiro.web.filter.authc.FormAuthenticationFilter;
@@ -38,6 +39,7 @@ public class RememberAuthenticationFilter extends FormAuthenticationFilter {
                 //如果是空的才初始化，否则每次都要初始化，项目得慢死
                 SystemUser user = userService.getSystemUserByUserPhone(userPhone);
                 session.setAttribute(userPhone,user);
+
             }
         }
         //这个方法本来只返回 subject.isAuthenticated()

@@ -79,7 +79,7 @@ layui.define(['layer'], function (exports) {
          */
         layerAlertI: function (text) {
             parent.layer.msg(text, { time: 5000, resize: false, zIndex: layer.zIndex,  });
-            return;
+           
         },
         /**
          * Loading
@@ -113,7 +113,7 @@ layui.define(['layer'], function (exports) {
             }, function () {
                 callback();
             }, function () {
-                layer.msg('好吧！', {
+                parent.layer.msg('好吧！', {
                     time: 2000
                 });
             });
@@ -156,7 +156,7 @@ layui.define(['layer'], function (exports) {
                     }
                 });
             }, function () {
-                layer.msg('好吧！', {
+                parent.layer.msg('好吧！', {
                     time: 2000
                 });
             });

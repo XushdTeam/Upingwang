@@ -1,4 +1,3 @@
-
 <%--
   Created by IntelliJ IDEA.
   User: Xushd
@@ -19,24 +18,25 @@
         <h2>${handle}</h2>
     </blockquote>
     <div class="site-text site-block">
-        <form class="layui-form layui-form-pane" >
+        <form class="layui-form layui-form-pane">
             <input type="hidden" name="roleId" value="${roleId}">
             <c:forEach var="item" items="${list}">
                 <fieldset class="layui-elem-field">
                     <legend>${item.name}</legend>
                     <div class="layui-field-box">
-                        <input type="checkbox" name="permission" value="${item.id}" title="${item.name}" <c:if test="${item.isChecked()==1}">checked</c:if> />
+                        <input type="checkbox" data-parent="0" name="permission" value="${item.id}" title="${item.name}"
+                               <c:if test="${item.isChecked()==1}">checked</c:if> />
                         <c:forEach var="child" items="${item.list}">
-                            <input type="checkbox" name="permission" value="${child.id}" title="${child.name}"<c:if test="${child.isChecked()==1}">checked</c:if> />
+                            <input type="checkbox" data-parent="${item.id}" name="permission" value="${child.id}"
+                                   title="${child.name}"
+                                   <c:if test="${child.isChecked()==1}">checked</c:if> />
                         </c:forEach>
                     </div>
                 </fieldset>
             </c:forEach>
             <div class="layui-form-item">
-                <div class="layui-input-block">
-                    <button class="layui-btn" lay-submit lay-filter="btnsubmit" data-href="${saveUrl}">保存</button>
-                   <%-- <button type="reset" class="layui-btn layui-btn-primary">重置</button>--%>
-                </div>
+                <button class="layui-btn" lay-submit lay-filter="btnsubmit" data-href="${saveUrl}">保存</button>
+                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
             </div>
         </form>
     </div>

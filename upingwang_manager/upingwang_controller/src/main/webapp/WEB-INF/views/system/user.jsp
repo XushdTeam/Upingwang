@@ -81,7 +81,7 @@
                         <td><img src="{{ item.userAdvert }}" width="50" height="50"/></td>
                         <td>{{ item.userName }}</td>
                         <td>{{ item.userPhone}}</td>
-                        <td>{{ }}</td>
+                        <td>{{ item.roleName}}</td>
                         <td align="center">{{# if (item.status) { }}
                             <i class="fa fa-toggle-on unlock"></i>
                             {{# } else { }}
@@ -90,7 +90,6 @@
                         </td>
                         <td>
                             <a class="layui-btn layui-btn-small do-action" data-type="doAddEdit" data-href="${handleUrl}/{{item.id}}"><i class="icon-edit  fa fa-pencil-square-o"></i>编辑</a>
-                            <a class="layui-btn layui-btn-small layui-btn-warm {{# if(!item.status){ }}layui-btn-disabled {{# }else{ }}do-action{{#} }}" data-type="doAddEdit" data-href="${permissionUrl}/{{item.id}}"><i class="icon-edit  fa fa-sitemap"></i>授权</a>
                             <a class="layui-btn layui-btn-small layui-btn-danger do-action" data-type="doDelete" data-text="确定删除<span class=red>{{item.roleName}}</span>吗？" data-href="${deleteUrl}/{{item.id}}"><i class="icon-trash-o  fa fa-trash-o"></i>删除</a>
                         </td>
                     </tr>
