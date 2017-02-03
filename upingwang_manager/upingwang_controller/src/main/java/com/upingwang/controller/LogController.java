@@ -7,6 +7,7 @@ import com.upingwang.common.result.JsonResult;
 import com.upingwang.common.target.SystemControllerLog;
 import com.upingwang.pojo.SystemLog;
 import com.upingwang.service.SystemLogService;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,6 +33,7 @@ public class LogController {
      * @param model
      * @return
      */
+    @RequiresPermissions("/log/run")
     @RequestMapping(value = "/log/run",method = RequestMethod.GET)
     public String runLog(Model model){
 
@@ -47,6 +49,7 @@ public class LogController {
      * @param model
      * @return
      */
+    @RequiresPermissions("/log/error")
     @RequestMapping(value = "/log/error",method = RequestMethod.GET)
     public String errorLog(Model model){
 
@@ -87,6 +90,7 @@ public class LogController {
         return JsonResult.OK(result);
     }
 
+    @RequiresPermissions("/log/run/delete")
     @SystemControllerLog(module = "日志管理",methods = "删除7天之前运行日志")
     @RequestMapping(value = "/log/run/delete",method = RequestMethod.POST)
     @ResponseBody
@@ -99,6 +103,7 @@ public class LogController {
 
     }
 
+    @RequiresPermissions("/log/error/delete")
     @SystemControllerLog(module = "日志管理",methods = "删除7天之前错误日志")
     @RequestMapping(value = "/log/error/delete",method = RequestMethod.POST)
     @ResponseBody

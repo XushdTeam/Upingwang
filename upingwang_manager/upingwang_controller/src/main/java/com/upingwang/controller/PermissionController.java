@@ -6,6 +6,7 @@ import com.upingwang.common.target.SystemControllerLog;
 import com.upingwang.pojo.SystemPermission;
 import com.upingwang.service.SystemPermissionService;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -36,6 +37,7 @@ public class PermissionController extends GlobalController{
      * 跳转
      * @return
      */
+    @RequiresPermissions("/permission")
     @RequestMapping(value = "/permission",method = RequestMethod.GET)
     public String permission(Model model){
 
@@ -96,6 +98,7 @@ public class PermissionController extends GlobalController{
      * @param result
      * @return
      */
+    @RequiresPermissions("/permission/save")
     @SystemControllerLog(module = "权限管理",methods = "权限新增")
     @RequestMapping(value = "/permission/save",method = RequestMethod.POST)
     @ResponseBody
@@ -122,6 +125,7 @@ public class PermissionController extends GlobalController{
      * @param result
      * @return
      */
+    @RequiresPermissions("/permission/update")
     @SystemControllerLog(module = "权限管理",methods = "权限修改")
     @RequestMapping(value = "/permission/update",method = RequestMethod.POST)
     @ResponseBody
@@ -141,6 +145,7 @@ public class PermissionController extends GlobalController{
 
     }
 
+    @RequiresPermissions("/permission/delete")
     @SystemControllerLog(module = "权限管理",methods = "权限删除")
     @RequestMapping(value = "/permission/delete/{id}",method = RequestMethod.POST)
     @ResponseBody

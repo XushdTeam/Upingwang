@@ -9,6 +9,7 @@ import com.upingwang.pojo.SystemMenu;
 import com.upingwang.service.SystemDicService;
 import com.upingwang.service.SystemMenuService;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -42,6 +43,7 @@ public class MenuController extends GlobalController {
      * 跳转菜单列表     *
      * @return
      */
+    @RequiresPermissions("/menu")
     @RequestMapping(value = "/menu",method = RequestMethod.GET)
     public String menu(Model model){
 
@@ -99,6 +101,7 @@ public class MenuController extends GlobalController {
      * @param result
      * @return
      */
+    @RequiresPermissions("/menu/save")
     @SystemControllerLog(module = "菜单管理",methods = "菜单新增")
     @RequestMapping(value = "/menu/save",method = RequestMethod.POST)
     @ResponseBody
@@ -125,6 +128,7 @@ public class MenuController extends GlobalController {
      * @param result
      * @return
      */
+    @RequiresPermissions("/menu/update")
     @SystemControllerLog(module = "菜单管理",methods = "菜单修改")
     @RequestMapping(value = "/menu/update",method = RequestMethod.POST)
     @ResponseBody
@@ -149,6 +153,7 @@ public class MenuController extends GlobalController {
      * @param id
      * @return
      */
+    @RequiresPermissions("/menu/delete")
     @SystemControllerLog(module = "菜单管理",methods = "菜单删除")
     @RequestMapping(value = "/menu/delete/{id}",method = RequestMethod.POST)
     @ResponseBody

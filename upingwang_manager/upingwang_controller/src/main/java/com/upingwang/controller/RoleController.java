@@ -10,6 +10,7 @@ import com.upingwang.pojo.SystemRole;
 import com.upingwang.service.SystemPermissionService;
 import com.upingwang.service.SystemRoleService;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -36,6 +37,7 @@ public class RoleController extends GlobalController{
 
 
 
+    @RequiresPermissions("/role")
     @RequestMapping(value = "/role",method = RequestMethod.GET)
     public String role(Model model){
 
@@ -57,7 +59,8 @@ public class RoleController extends GlobalController{
         return JsonResult.OK(result);
     }
 
-    @SystemControllerLog(module = "角色管理",methods = "角色权限分配")
+
+    @SystemControllerLog(module = "角色管理",methods = "角色权限获取")
     @RequestMapping(value = "/role/permission/{id}",method = RequestMethod.GET)
     public String rolePermission(@PathVariable String id, Model model){
 
@@ -71,7 +74,8 @@ public class RoleController extends GlobalController{
         return "/system/role_p";
     }
 
-    @SystemControllerLog(module = "角色管理",methods = "修改用户权限")
+    @RequiresPermissions("/role/permission")
+    @SystemControllerLog(module = "角色管理",methods = "角色权限分配")
     @RequestMapping(value = "/role/permission/save",method = RequestMethod.POST)
     @ResponseBody
     public JsonResult rolePermission(@RequestParam(value = "permission[]",required = false)List permission, long roleId){
@@ -104,6 +108,7 @@ public class RoleController extends GlobalController{
         return resultView;
     }
 
+    @RequiresPermissions("/role/save")
     @SystemControllerLog(module = "角色管理",methods = "角色新增")
     @RequestMapping(value = "/role/save",method = RequestMethod.POST)
     @ResponseBody
@@ -124,6 +129,7 @@ public class RoleController extends GlobalController{
         }
     }
 
+    @RequiresPermissions("/role/update")
     @SystemControllerLog(module = "角色管理",methods = "角色修改")
     @RequestMapping(value = "/role/update",method = RequestMethod.POST)
     @ResponseBody
@@ -141,6 +147,7 @@ public class RoleController extends GlobalController{
         }
     }
 
+    @RequiresPermissions("/role/delete")
     @SystemControllerLog(module = "角色管理",methods = "角色删除")
     @RequestMapping(value = "/role/delete/{id}",method = RequestMethod.POST)
     @ResponseBody
