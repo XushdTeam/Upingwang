@@ -50,14 +50,14 @@
                         <cite>界面</cite>
                     </a>
                 </li>
-                <shiro:hasRole name="admin">
+                <shiro:hasAnyRoles name="admin,dev">
                     <li class="layui-nav-item ">
                         <a href="javascript:;" data-fid="2">
                             <i class="fa1 fa-television"></i>
                             <cite>系统</cite>
                         </a>
                     </li>
-                </shiro:hasRole>
+                </shiro:hasAnyRoles>
             </ul>
             <ul class="layui-nav admin-header-item site-nav-layim" >
                 <li class="layui-nav-item ">

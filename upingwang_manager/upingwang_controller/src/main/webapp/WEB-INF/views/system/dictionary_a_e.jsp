@@ -29,8 +29,7 @@
                         </option>
                         <c:forEach var="item" items="${list}">
                             <option
-                                    <c:if test="${dic.parent==item.id}">selected="selected"</c:if> value="${item.id}">
-                                |---${item.dicName}</option>
+                                    <c:if test="${dic.parent==item.id}">selected="selected"</c:if> value="${item.id}">|---${item.dicName}</option>
                         </c:forEach>
                     </select>
                 </div>

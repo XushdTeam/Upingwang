@@ -68,7 +68,7 @@
                         <td>
                             {{# if (item.parent) { }}
                             <a class="layui-btn layui-btn-small do-action" data-type="doAddEdit" data-href="${handleUrl}/{{item.id}}"><i class="icon-edit  fa fa-pencil-square-o"></i>编辑</a>
-                            <a class="layui-btn layui-btn-small layui-btn-danger do-action" data-type="doDelete" data-text="确定删除<span class=red>{{item.dicName}}</span>吗？" data-href="${handleUrl}/{{item.id}}"><i class="icon-trash-o  fa fa-trash-o"></i>删除</a>
+                            <a class="layui-btn layui-btn-small layui-btn-danger do-action" data-type="doDelete" data-text="确定删除<span class=red>{{item.dicName}}</span>吗？" data-href="${deleteUrl}/{{item.id}}"><i class="icon-trash-o  fa fa-trash-o"></i>删除</a>
                             {{# }else { }}
                                 <a class="layui-btn layui-btn-small layui-btn-disabled"><i class=" icon-edit  fa fa-lock"></i>禁止操作</a>
                             {{# } }}
