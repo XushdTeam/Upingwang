@@ -37,6 +37,8 @@
             <tx:method name="create*" propagation="REQUIRED" />
             <tx:method name="delete*" propagation="REQUIRED" />
             <tx:method name="update*" propagation="REQUIRED" />
+            <!--AOP日志插入 如果当前有事务 则挂起 以非事务方式进行-->
+            <tx:method name="writeLog" propagation="NOT_SUPPORTED" />
             <!--没有事务 如果当前有事务则在事务中进行-->
             <tx:method name="find*" propagation="SUPPORTS" read-only="true" />
             <tx:method name="select*" propagation="SUPPORTS" read-only="true" />
@@ -45,7 +47,6 @@
     </tx:advice>
 
     <bean id="serviceLog" class="com.upingwang.aspect.SystemLogAspect"/>
-
 
 
 </beans>
