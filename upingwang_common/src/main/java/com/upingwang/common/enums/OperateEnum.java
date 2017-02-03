@@ -12,7 +12,8 @@ public enum OperateEnum {
     FILE_SIZE(500,"文件太大"),
     FILE_EMPTY(500,"文件为空"),
     PASS_NOT_EQUAIL(500,"两次密码不一致"),
-    PASS_ERROR(500,"原密码错误");
+    PASS_ERROR(500,"原密码错误"),
+    SB(500,"你是东方不败么？");
 
     private int state;
 
