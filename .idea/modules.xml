@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/UpingWang.iml" filepath="$PROJECT_DIR$/UpingWang.iml" />
+      <module fileurl="file://$PROJECT_DIR$/upingwang_common/upingwang_common.iml" filepath="$PROJECT_DIR$/upingwang_common/upingwang_common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/upingwang_manager/upingwang_controller/upingwang_controller.iml" filepath="$PROJECT_DIR$/upingwang_manager/upingwang_controller/upingwang_controller.iml" />
+      <module fileurl="file://$PROJECT_DIR$/upingwang_manager/upingwang_manager.iml" filepath="$PROJECT_DIR$/upingwang_manager/upingwang_manager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/upingwang_manager/upingwang_mapper/upingwang_mapper.iml" filepath="$PROJECT_DIR$/upingwang_manager/upingwang_mapper/upingwang_mapper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/upingwang_manager/upingwang_pojo/upingwang_pojo.iml" filepath="$PROJECT_DIR$/upingwang_manager/upingwang_pojo/upingwang_pojo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/upingwang_manager/upingwang_service/upingwang_service.iml" filepath="$PROJECT_DIR$/upingwang_manager/upingwang_service/upingwang_service.iml" />
+    </modules>
+  </component>
+</project>

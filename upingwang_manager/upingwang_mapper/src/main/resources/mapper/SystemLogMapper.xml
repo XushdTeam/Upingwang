@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.upingwang.mapper.SystemLogMapper">
+  <resultMap id="BaseResultMap" type="com.upingwang.pojo.SystemLog">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="log_method" jdbcType="VARCHAR" property="logMethod" />
+    <result column="log_type" jdbcType="INTEGER" property="logType" />
+    <result column="module_name" jdbcType="VARCHAR" property="moduleName" />
+    <result column="method_name" jdbcType="VARCHAR" property="methodName" />
+    <result column="request_ip" jdbcType="CHAR" property="requestIp" />
+    <result column="exception_code" jdbcType="VARCHAR" property="exceptionCode" />
+    <result column="exception_detail" jdbcType="VARCHAR" property="exceptionDetail" />
+    <result column="params" jdbcType="VARCHAR" property="params" />
+    <result column="user_name" jdbcType="CHAR" property="userName" />
+    <result column="log_time" jdbcType="TIMESTAMP" property="logTime" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, log_method, log_type, module_name, method_name, request_ip, exception_code, exception_detail, 
+    params, user_name, log_time
+  </sql>
+  <select id="selectByExample" parameterType="com.upingwang.pojo.SystemLogExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from system_log
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from system_log
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from system_log
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.upingwang.pojo.SystemLogExample">
+    delete from system_log
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.upingwang.pojo.SystemLog">
+    insert into system_log (id, log_method, log_type, 
+      module_name, method_name, request_ip, 
+      exception_code, exception_detail, params, 
+      user_name, log_time)
+    values (#{id,jdbcType=BIGINT}, #{logMethod,jdbcType=VARCHAR}, #{logType,jdbcType=INTEGER}, 
+      #{moduleName,jdbcType=VARCHAR}, #{methodName,jdbcType=VARCHAR}, #{requestIp,jdbcType=CHAR}, 
+      #{exceptionCode,jdbcType=VARCHAR}, #{exceptionDetail,jdbcType=VARCHAR}, #{params,jdbcType=VARCHAR}, 
+      #{userName,jdbcType=CHAR}, #{logTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.upingwang.pojo.SystemLog">
+    insert into system_log
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="logMethod != null">
+        log_method,
+      </if>
+      <if test="logType != null">
+        log_type,
+      </if>
+      <if test="moduleName != null">
+        module_name,
+      </if>
+      <if test="methodName != null">
+        method_name,
+      </if>
+      <if test="requestIp != null">
+        request_ip,
+      </if>
+      <if test="exceptionCode != null">
+        exception_code,
+      </if>
+      <if test="exceptionDetail != null">
+        exception_detail,
+      </if>
+      <if test="params != null">
+        params,
+      </if>
+      <if test="userName != null">
+        user_name,
+      </if>
+      <if test="logTime != null">
+        log_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="logMethod != null">
+        #{logMethod,jdbcType=VARCHAR},
+      </if>
+      <if test="logType != null">
+        #{logType,jdbcType=INTEGER},
+      </if>
+      <if test="moduleName != null">
+        #{moduleName,jdbcType=VARCHAR},
+      </if>
+      <if test="methodName != null">
+        #{methodName,jdbcType=VARCHAR},
+      </if>
+      <if test="requestIp != null">
+        #{requestIp,jdbcType=CHAR},
+      </if>
+      <if test="exceptionCode != null">
+        #{exceptionCode,jdbcType=VARCHAR},
+      </if>
+      <if test="exceptionDetail != null">
+        #{exceptionDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="params != null">
+        #{params,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=CHAR},
+      </if>
+      <if test="logTime != null">
+        #{logTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.upingwang.pojo.SystemLogExample" resultType="java.lang.Long">
+    select count(*) from system_log
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update system_log
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.logMethod != null">
+        log_method = #{record.logMethod,jdbcType=VARCHAR},
+      </if>
+      <if test="record.logType != null">
+        log_type = #{record.logType,jdbcType=INTEGER},
+      </if>
+      <if test="record.moduleName != null">
+        module_name = #{record.moduleName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.methodName != null">
+        method_name = #{record.methodName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.requestIp != null">
+        request_ip = #{record.requestIp,jdbcType=CHAR},
+      </if>
+      <if test="record.exceptionCode != null">
+        exception_code = #{record.exceptionCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.exceptionDetail != null">
+        exception_detail = #{record.exceptionDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="record.params != null">
+        params = #{record.params,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userName != null">
+        user_name = #{record.userName,jdbcType=CHAR},
+      </if>
+      <if test="record.logTime != null">
+        log_time = #{record.logTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update system_log
+    set id = #{record.id,jdbcType=BIGINT},
+      log_method = #{record.logMethod,jdbcType=VARCHAR},
+      log_type = #{record.logType,jdbcType=INTEGER},
+      module_name = #{record.moduleName,jdbcType=VARCHAR},
+      method_name = #{record.methodName,jdbcType=VARCHAR},
+      request_ip = #{record.requestIp,jdbcType=CHAR},
+      exception_code = #{record.exceptionCode,jdbcType=VARCHAR},
+      exception_detail = #{record.exceptionDetail,jdbcType=VARCHAR},
+      params = #{record.params,jdbcType=VARCHAR},
+      user_name = #{record.userName,jdbcType=CHAR},
+      log_time = #{record.logTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.upingwang.pojo.SystemLog">
+    update system_log
+    <set>
+      <if test="logMethod != null">
+        log_method = #{logMethod,jdbcType=VARCHAR},
+      </if>
+      <if test="logType != null">
+        log_type = #{logType,jdbcType=INTEGER},
+      </if>
+      <if test="moduleName != null">
+        module_name = #{moduleName,jdbcType=VARCHAR},
+      </if>
+      <if test="methodName != null">
+        method_name = #{methodName,jdbcType=VARCHAR},
+      </if>
+      <if test="requestIp != null">
+        request_ip = #{requestIp,jdbcType=CHAR},
+      </if>
+      <if test="exceptionCode != null">
+        exception_code = #{exceptionCode,jdbcType=VARCHAR},
+      </if>
+      <if test="exceptionDetail != null">
+        exception_detail = #{exceptionDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="params != null">
+        params = #{params,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        user_name = #{userName,jdbcType=CHAR},
+      </if>
+      <if test="logTime != null">
+        log_time = #{logTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.upingwang.pojo.SystemLog">
+    update system_log
+    set log_method = #{logMethod,jdbcType=VARCHAR},
+      log_type = #{logType,jdbcType=INTEGER},
+      module_name = #{moduleName,jdbcType=VARCHAR},
+      method_name = #{methodName,jdbcType=VARCHAR},
+      request_ip = #{requestIp,jdbcType=CHAR},
+      exception_code = #{exceptionCode,jdbcType=VARCHAR},
+      exception_detail = #{exceptionDetail,jdbcType=VARCHAR},
+      params = #{params,jdbcType=VARCHAR},
+      user_name = #{userName,jdbcType=CHAR},
+      log_time = #{logTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
