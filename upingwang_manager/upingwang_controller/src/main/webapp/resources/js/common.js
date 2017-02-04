@@ -15,6 +15,12 @@ layui.define(['layer'], function (exports) {
          * @param callback
          */
         ajax: function (url, type, dataType, data, callback) {
+            if(arguments.length==2){
+                callback = arguments[1];
+                type = "GET";
+                dataType="JSON";
+                data={};
+            }
             obj.showLoading();
             $.ajax({
                 url: url,

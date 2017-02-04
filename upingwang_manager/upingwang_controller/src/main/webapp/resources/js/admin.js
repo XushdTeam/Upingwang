@@ -38,16 +38,24 @@ layui.define(['layer', 'common', 'navbar', 'tab','sha256'], function(exports){
                 //绑定一级导航的点击事件
                 $this.on('click', function () {
                     //获取设置的模块ID
+
                     var id = $this.find('a').data('fid');
-                    navbar.set({
-                        elem: '#admin-navbar-side',
-                        url: '/menu/json/'+id,
-                        cached:true
-                     });
-                     navbar.render();
-                     navbar.on('click(side)', function(data) {
-                     tab.tabAdd(data.field);
-                     });
+                    common.ajax('/menu/json/'+id,function (err,res) {
+                        if(err){
+                            common.layerAlertW(err.message);
+                        }else{
+                            //设置navbar
+                            navbar.set({
+                                elem: '#admin-navbar-side', //存在navbar数据的容器ID
+                                data: res.data
+                            });
+                            //渲染navbar
+                            navbar.render();
+                            navbar.on('click(side)', function(data) {
+                                tab.tabAdd(data.field);
+                            });
+                        }
+                    });
                 });
 
             });

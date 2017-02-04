@@ -28,9 +28,7 @@
                                 <c:if test="${menu.parent==0}">selected="selected"</c:if> value="0">无节点,我是父节点
                         </option>
                         <c:forEach var="item" items="${list}">
-                            <option
-                                    <c:if test="${menu.parent==item.id}">selected="selected"</c:if> value="${item.id}">
-                                |---${item.menuName}</option>
+                            <option <c:if test="${menu.parent==item.id}">selected="selected"</c:if> value="${item.id}">|---${item.menuName}</option>
                         </c:forEach>
                     </select>
                 </div>

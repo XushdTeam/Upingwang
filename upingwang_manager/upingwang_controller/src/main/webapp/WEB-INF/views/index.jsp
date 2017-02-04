@@ -32,7 +32,7 @@
                 </a>
             </div>
             <ul class="layui-nav" id="menu">
-                <li class="layui-nav-item">
+                <%--<li class="layui-nav-item">
                     <a href="javascript:;" data-fid="85">
                         <i class="fa1 fa-send-o"></i>
                         <cite>站点</cite>
@@ -43,11 +43,11 @@
                         <i class="fa1 fa-cube"></i>
                         <cite>应用</cite>
                     </a>
-                </li>
+                </li>--%>
                 <li class="layui-nav-item ">
-                    <a href="javascript:;" data-fid="4">
-                        <i class="fa1 fa-server"></i>
-                        <cite>界面</cite>
+                    <a href="javascript:;" data-fid="3">
+                        <i class="fa1 fa-institution"></i>
+                        <cite>学校</cite>
                     </a>
                 </li>
                 <shiro:hasAnyRoles name="admin,dev">
