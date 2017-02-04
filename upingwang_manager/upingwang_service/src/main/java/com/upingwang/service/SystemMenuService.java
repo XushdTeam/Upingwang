@@ -1,6 +1,8 @@
 package com.upingwang.service;
 
+import com.upingwang.common.dto.MenuNode;
 import com.upingwang.common.enums.OperateEnum;
+import com.upingwang.common.result.JsonResult;
 import com.upingwang.pojo.SystemMenu;
 
 import java.util.List;
@@ -28,5 +30,5 @@ public interface SystemMenuService {
 
     OperateEnum deleteMenu(long id);
 
-    List<?> getMenuListForWeb(String typeId);
+    JsonResult getMenuListForWeb(String typeId);
 }

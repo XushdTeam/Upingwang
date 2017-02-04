@@ -15,10 +15,13 @@ public class MenuNode {
 
     private boolean spread;
 
-    private List<?> children;
+    private List<MenuNode> children;
 
 
-    public MenuNode(String title, String icon, boolean spread, List<?> children) {
+    public MenuNode() {
+    }
+
+    public MenuNode(String title, String icon, boolean spread, List<MenuNode> children) {
         this.title = title;
         this.icon = icon;
         this.spread = spread;
@@ -63,11 +66,11 @@ public class MenuNode {
         this.spread = spread;
     }
 
-    public List<?> getChildren() {
+    public List<MenuNode> getChildren() {
         return children;
     }
 
-    public void setChildren(List<?> children) {
+    public void setChildren(List<MenuNode> children) {
         this.children = children;
     }
 }
