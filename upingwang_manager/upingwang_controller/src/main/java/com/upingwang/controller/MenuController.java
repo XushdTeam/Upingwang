@@ -1,5 +1,6 @@
 package com.upingwang.controller;
 
+import com.upingwang.common.dto.MenuNode;
 import com.upingwang.common.enums.DicParentEnum;
 import com.upingwang.common.enums.OperateEnum;
 import com.upingwang.common.result.JsonResult;
@@ -168,12 +169,11 @@ public class MenuController extends GlobalController {
      * @param typeId
      * @return
      */
-    @SystemControllerLog(module = "菜单管理",methods = "前台菜单获取")
     @RequestMapping(value = "/menu/json/{typeId}",method = RequestMethod.GET)
     @ResponseBody
     public JsonResult menuJson(@PathVariable String typeId){
-        List<?> menuList = menuService.getMenuListForWeb(typeId);
-        return JsonResult.OK(menuList);
+        JsonResult result = menuService.getMenuListForWeb(typeId);
+        return result;
     }
 
 }

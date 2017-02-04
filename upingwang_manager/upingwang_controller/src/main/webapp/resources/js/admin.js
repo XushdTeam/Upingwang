@@ -31,33 +31,30 @@ layui.define(['layer', 'common', 'navbar', 'tab','sha256'], function(exports){
             }).resize();
             //防止iframe嵌套
             window.top.location !== window.location && (window.top.location = window.location);
+            var now_index = 0;
             //绑定导航数据
-            var $menu = $('#menu');
-            $menu.find('li.layui-nav-item').each(function () {
+            $(".layui-nav-item",$("#menu")).on("click",function () {
                 var $this = $(this);
-                //绑定一级导航的点击事件
-                $this.on('click', function () {
-                    //获取设置的模块ID
-
-                    var id = $this.find('a').data('fid');
-                    common.ajax('/menu/json/'+id,function (err,res) {
-                        if(err){
-                            common.layerAlertW(err.message);
-                        }else{
-                            //设置navbar
-                            navbar.set({
-                                elem: '#admin-navbar-side', //存在navbar数据的容器ID
-                                data: res.data
-                            });
-                            //渲染navbar
-                            navbar.render();
-                            navbar.on('click(side)', function(data) {
-                                tab.tabAdd(data.field);
-                            });
-                        }
-                    });
+                //获取设置的模块ID
+                var id = $this.find('a').data('fid');
+                if(id==now_index)return;
+                now_index  = id;
+                common.ajax('/menu/json/'+id,function (err,res) {
+                    if(err){
+                        common.layerAlertW(err.message);
+                    }else{
+                        //设置navbar
+                        navbar.set({
+                            elem: '#admin-navbar-side', //存在navbar数据的容器ID
+                            data: res.data
+                        });
+                        //渲染navbar
+                        navbar.render();
+                        navbar.on('click(side)', function(data) {
+                            tab.tabAdd(data.field);
+                        });
+                    }
                 });
-
             });
             //首页交互
             var adminActive = {
