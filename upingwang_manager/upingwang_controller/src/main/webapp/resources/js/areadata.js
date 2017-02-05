@@ -2,7 +2,8 @@
 
 var area_array=[];
 var sub_array=[];
-area_array[0] = "请选择";
+var sub_arr=[];
+area_array[0] = "请选择省";
 area_array[11]="北京市";
 sub_array[11]=[];
 sub_array[11][0]="请选择";
@@ -606,7 +607,6 @@ sub_array[82][8205]="风顺堂区";
 sub_array[82][8206]="嘉模堂区";
 sub_array[82][8207]="圣方济各堂区";
 var l_arr=[];
-var sub_arr=[];
 l_arr[1301]="石家庄市";
 sub_arr[1301]=[];
 sub_arr[1301][0]="请选择";
@@ -4388,6 +4388,6 @@ sub_arr[6590][659004]="五家渠市";
     var o={};
     o.area_array = area_array;
     o.sub_array = sub_array;
-
+    o.sub_arr = sub_arr;
     e("areadata",o);
 });

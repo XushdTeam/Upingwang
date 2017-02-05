@@ -63,7 +63,7 @@ public class BureauController extends GlobalController {
     @RequestMapping(value = "/bureau/handle/{id}")
     public String handle(@PathVariable String id, Model model) {
         String modeView = "school/bureau_a_e";
-        model.addAttribute("baseUrl", "/user");
+        model.addAttribute("baseUrl", "/bureau");
         if (StringUtils.equals("new", id)) {
             //新增
             model.addAttribute("handle", "教育局管理/教育局新增");

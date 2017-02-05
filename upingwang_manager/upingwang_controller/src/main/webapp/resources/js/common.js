@@ -2,8 +2,8 @@
  * 公共模块
  * Created by Xushd on 2017/1/19 0019.
  */
-layui.define(['layer'], function (exports) {
-    var $ = layui.jquery;
+layui.define(['layer','util'], function (exports) {
+    var $ = layui.jquery,util = layui.util;
 
     var obj = {
         /**
@@ -96,6 +96,9 @@ layui.define(['layer'], function (exports) {
             parent.layer.msg(text, { time: 5000, resize: false, zIndex: layer.zIndex,  });
            
         },
+        layerMessageE:function(text){
+            parent.layer.msg(text, {icon: 5,anim:6});
+        },
         /**
          * Loading
          * @param test
@@ -182,6 +185,23 @@ layui.define(['layer'], function (exports) {
          */
         throwError: function(msg) {
             throw new Error(msg);
+        },
+        fixBar: function () {
+            var backUrl = $(".main-wrap").data("href");
+            util.fixbar(
+                {
+                    bar1: "<i class='fa fa-arrow-left'></i>",
+                    click: function (type) {
+                        if (type === 'bar1') {
+                            if (backUrl == undefined || backUrl == "") {
+                                history.back();
+                            } else {
+                                window.location.href = backUrl;
+                            }
+
+                        }
+                    }
+                });
         }
 
 

@@ -19,28 +19,28 @@
     </blockquote>
     <div class="site-text site-block">
         <form class="layui-form layui-form-pane">
-
+            <input type="hidden" id="code" value="${bureau.bureauCode}">
             <div class="layui-form-item">
                 <label class="layui-form-label">教育局名称</label>
                 <div class="layui-input-block">
-                    <input name="menuName" autocomplete="off" value="${bureau.bureauName}" lay-verify="required"
+                    <input name="bureauName" autocomplete="off" value="${bureau.bureauName}" lay-verify="required"
                            placeholder="教育局名称，50字符内" class="layui-input" type="text">
                 </div>
             </div>
             <div class="layui-form-item">
                 <label class="layui-form-label">区域选择</label>
                 <div class="layui-input-inline">
-                    <select name="province" lay-filter="province">
+                    <select name="prov" lay-filter="prov" lay-verify="not0">
                         <option value="">请选择省</option>
                     </select>
                 </div>
                 <div class="layui-input-inline" >
-                    <select name="city" lay-filter="city">
+                    <select name="city" lay-filter="city" lay-verify="not0">
                         <option value="">请选择市</option>
                     </select>
                 </div>
                 <div class="layui-input-inline" >
-                    <select name="area" lay-filter="area">
+                    <select name="area" lay-filter="area" >
                         <option value="">请选择县/区</option>
                     </select>
                 </div>
@@ -65,25 +65,54 @@
     <script type="text/javascript" src="/resources/js/event.js"></script>
     <script type="text/javascript" src="/resources/js/areafun.js"></script>
     <script type="text/javascript">
-
-        layui.use(["form_a_e","form"], function () {
+        layui.use(["form","common"], function () {
             var $ = layui.jquery,
-                form_a_e = layui.form_a_e,
                 form=layui.form(),
                 common = layui.common;
 
+            common.fixBar();
 
-
-
-
-
-            form_a_e.init();
-
-            form.on('select(prov)', function(data){
-
+            form.verify({
+                not0: function(value){
+                    if(value==0){
+                        return '请选择';
+                    }
+                }
             });
+            form.on("submit(btnsubmit)", function (formdata) {
 
+                var url = $(formdata.elem).data("href");
 
+                var area = document.getElementsByName("area")[0];
+                var city = document.getElementsByName('city')[0];
+                var prov = document.getElementsByName('prov')[0];
+                //判断 县区是否隐藏
+                if ($(area).parent().is(":hidden")) {
+                    formdata.field.bureauCode = formdata.field.city;
+                    formdata.field.bureauArea = $(prov).find("option:selected").text() + $(city).find("option:selected").text();
+                } else {
+                    if (area.value == 0) {
+                        $(area).addClass("layui-form-danger");
+                        common.layerMessageE("请选择");
+                        return false;
+                    }
+                    formdata.field.bureauCode = formdata.field.area;
+                    formdata.field.bureauArea = $(prov).find("option:selected").text() + $(city).find("option:selected").text() + $(area).find("option:selected").text();
+                }
+
+                common.ajax(url, "POST", "json", formdata.field, function (err, res) {
+                    if (err) {
+                        common.layerAlertE(err, '提示');
+                    } else {
+                        common.layerAlertS(res.message);
+                        common.time(function () {
+                            window.location.href = $(".main-wrap").data("href");
+                        });
+
+                    }
+                });
+                return false;
+            });
 
         });
     </script>

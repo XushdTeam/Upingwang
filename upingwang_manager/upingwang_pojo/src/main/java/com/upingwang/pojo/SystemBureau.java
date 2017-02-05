@@ -1,14 +1,19 @@
 package com.upingwang.pojo;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 import java.util.Date;
 
 public class SystemBureau {
     private Long id;
 
+    @NotBlank(message = "教育局名称为空")
     private String bureauName;
 
+    @NotBlank(message = "教育局区域为空")
     private String bureauArea;
 
+    @NotBlank(message = "区域代码为空")
     private String bureauCode;
 
     private Integer status;

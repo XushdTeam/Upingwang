@@ -52,7 +52,7 @@
                     <col width="10%">
                     <col width="10%">
                     <col width="10%">
-                    <col width="10%">
+                    <col width="5%">
                     <col width="15%">
                 </colgroup>
                 <thead>
@@ -70,7 +70,7 @@
                     {{#  layui.each(d.rows, function(index, item){ }}
                     <tr>
                         <td>{{ item.id }}</td>
-                        <td><img src="{{ item.bureauName }}" width="50" height="50"/></td>
+                        <td>{{ item.bureauName }}</td>
                         <td>{{ item.bureauArea }}</td>
                         <td>{{ item.bureauCode}}</td>
                         <td align="center">{{# if (item.status) { }}

@@ -1,147 +1,111 @@
-﻿
+﻿/**
+ * 省市区三级联动
+ * @Author Xushd
+ * @Since 2017-02-05 00:24:22
+ * @desc 省(name=prov) 市(name=city) 区(name=area)
+ *
+ */
 layui.use(["areadata","form"],function () {
 
     var $ =layui.jquery,
-        area_array = layui.areadata.area_array,
-        sub_arry = layui.areadata.sub_array,
-        doc = document,form=layui.form();
-    
-    var obj = {
-        initArea:function (p,c,d) {
-            var m = doc.getElementsByName(p)[0];
-            var o = doc.getElementsByName(c)[0];
-            var n = doc.getElementsByName(d)[0];
+        p = layui.areadata.area_array,//省
+        c = layui.areadata.sub_array,//市
+        q = layui.areadata.sub_arr,//区
+        form=layui.form(),
+        m = document.getElementsByName('prov')[0],
+        n = document.getElementsByName('city')[0],
+        o = document.getElementsByName('area')[0];
 
-            for (e = 0; e < area_array.length; e++) {
-                if (area_array[e] == undefined) {
+    var obj = {
+        init:function (d) {
+            if(d.length==4){
+                $(o).parent().hide();
+
+            }
+            var _p = d.substring(0,2);
+            for (e = 0; e < p.length; e++) {
+                if (p[e] == undefined) {
                     continue;
                 }
-                m.appendChild( new Option(area_array[e], e));
+                m.options[e] = new Option(p[e], e);
+                if (_p == e) {
+                    m.options[e].selected = true;
+                }
             }
+            n.options[0] = new Option("请选择市 ", 0);
+            o.options[0] = new Option("请选择县/区 ", 0);
+            if(d.length>2){
+                obj.provChange(d);
+            }
+            if(d.length>4){
+                obj.changeCity(d);
+            }
+            form.render('select');
+        },
+        provChange:function(v){
+            obj.removeOptions(n);
+            var _c= 1,f= v.substring(0,2),t= v.substring(0,4);
+            n.options[0] = new Option("请选择市 ", 0);
+            if (c[f] != undefined) {
+                for (b = 0; b < c[f].length; b++) {
+                    if (c[f][b] == undefined) { continue }
+                    if ( (f != 71) && (f != 81) && (f != 82)) { if ((b % 100) == 0) { continue } }
+                    n.options[_c] = new Option(c[f][b], b);
+                    if (t == b) {
+                        n.options[_c].selected = true;
+                    }
+                    _c++;
+                }
+            }
+            obj.removeOptions(o);
+            o.options[0] = new Option("请选择县/区 ", 0);
+            if (f == 11 || f == 12 || f == 31 || f == 71 || f == 50 || f == 81 || f == 82) {
+                $(o).parent().hide();
 
+            }
+            else {
+                $(o).parent().show();
+
+            }
             form.render('select');
 
+        },
+        changeCity:function(v){
+            obj.removeOptions(o);
+            o.options[0] = new Option("请选择县/区 ", 0);
+            var t = v.substring(0, 2),f= v.substring(0,4);
+            if (v==0||t == 11 || t == 12 || t == 31 || t == 71 || t == 50 || t == 81 || t == 82){
+
+            }else{
+                var _d = q[f],_c=1;
+                for (var i = f * 100; i < _d.length; i++) {
+                    if (_d[i] == undefined) continue;
+                    o.options[_c] = new Option(_d[i], i);
+                    if (v == i) {
+                        o.options[_c].selected = true;
+                    }
+                    _c++;
+                }
+            }
+            form.render('select');
+        },
+        removeOptions:function(c){
+            if ((c != undefined) && (c.options != undefined)) {
+                var a = c.options.length;
+                for (var b = 0; b < a; b++) {
+                    c.options[0] = null;
+                }
+            }
         }
     }
-    //console.log(area_array);
-    obj.initArea('province','city','area');
-    
+    var code = $("#code").val();
+    obj.init(code||"0");
+    form.on('select(prov)', function(data){
+        obj.provChange(data.value);
+    });
+    form.on('select(city)', function(data){
+        obj.changeCity(data.value);
+    });
     
 });
 
-function initComplexArea(a, k, h, p, q, d, b, l) {
-    var f = initComplexArea.arguments;
-    var m = document.getElementById(a);
-    var o = document.getElementById(k);
-    var n = document.getElementById(h);
-    var e = 0;
-    var c = 0;
-    if (p != undefined) {
-        if (d != undefined) {
-            d = parseInt(d);
-        }
-        else {
-            d = 0;
-        }
-        if (b != undefined) {
-            b = parseInt(b);
-        }
-        else {
-            b = 0;
-        }
-        if (l != undefined) {
-            l = parseInt(l);
-        }
-        else {
-            l = 0
-        }
-        n[0] = new Option("请选择 ", 0);
-     
-        for (e = 0; e < p.length; e++) {
-            if (p[e] == undefined) {
-                continue;
-            }
-            if (f[6]) {
-                if (f[6] == true) {
-                    if (e == 0) {
-                        continue
-                    }
-                }
-            }
-            m[c] = new Option(p[e], e);
-            if (d == e) {
-                m[c].selected = true;
-            }
-            c++
-        }
-        if (q[d] != undefined) {
-            c = 0; for (e = 0; e < q[d].length; e++) {
-                if (q[d][e] == undefined) { continue }
-                if (f[6]) {
-                    if ((f[6] == true) && (d != 71) && (d != 81) && (d != 82)) {
-                        if ((e % 100) == 0) { continue }
-                    }
-                } o[c] = new Option(q[d][e], e);
-                if (b == e) { o[c].selected = true } c++
-            }
-        }
-        if(b==0)o[0] = new Option("请选择 ", 0); 
-    }
-  
-}
-function changeComplexProvince(f, k, e, d) {
-	
-    var c = changeComplexProvince.arguments; 
-    var h = document.getElementById(e);
-    var g = document.getElementById(d); 
-    var b = 0; 
-    var a = 0;
-    removeOptions(h); 
-    f = parseInt(f);
-  
-    if (k[f] != undefined) {
-        for (b = 0; b < k[f].length; b++) {
-            if (k[f][b] == undefined) { continue }
-            if (c[3]) { if ((c[3] == true) && (f != 71) && (f != 81) && (f != 82)) { if ((b % 100) == 0) { continue } } }
-            h[a] = new Option(k[f][b], b); a++
-        }
-    }else{
-    	
-    	 removeOptions(h); 
-    	h[0] = new Option("请选择 ", 0);
-    }
-    removeOptions(g); 
-    g[0] = new Option("请选择 ", 0);
-    if (f == 11 || f == 12 || f == 31 || f == 71 || f == 50 || f == 81 || f == 82) {
-        if ($("#" + d ))
-        { $("#" + d ).hide(); }
-    }
-    else {
-        if ($("#" + d )) { $("#" + d ).show(); }
-    }
-}
-
- 
-function changeCity(c, a, t) {
-    $("#" + a).html('<option value="0" >请选择</option>');
-    $("#" + a).unbind("change");
-    c = parseInt(c); 
-    var _d = sub_arr[c];
-    var str = "";     
-    str += "<option value='0' >请选择</option>";
-    for (var i = c * 100; i < _d.length; i++) {
-        if (_d[i] == undefined) continue; 
-        str += "<option value='" + i + "' >" + _d[i] + "</option>";
-    }
-    $("#" + a).html(str);
-    
-}
-
-function removeOptions(c) {
-    if ((c != undefined) && (c.options != undefined)) {
-        var a = c.options.length;
-        for (var b = 0; b < a; b++) {
-            c.options[0] = null;
-        }
-    }
-}

@@ -4,11 +4,10 @@
 layui.define(["common","form",'util','sha256'],function (exports) {
     var $ = layui.jquery,
         form = layui.form(),
-        util = layui.util,
         common = layui.common,
         sha256 = layui.sha256;
 
-    var backUrl = "";
+    var backUrl = $(".main-wrap").data("href");
 
     var private ={
 
@@ -33,21 +32,6 @@ layui.define(["common","form",'util','sha256'],function (exports) {
          */
         formOn:function (callback) {
             form.on('submit(btnsubmit)',callback);
-        },
-        /**
-         * 返回和回到顶部
-         */
-        fixbar:function () {
-            backUrl = $(".main-wrap").data("href");
-            util.fixbar(
-                {
-                    bar1: "<i class='fa fa-arrow-left'></i>",
-                    click: function (type) {
-                        if(type === 'bar1'){
-                            window.location.href = backUrl;
-                        }
-                    }
-                });
         }
     }
 
@@ -60,7 +44,7 @@ layui.define(["common","form",'util','sha256'],function (exports) {
                 private.submit(formdata);
                 return false;
             });
-            private.fixbar();
+            common.fixBar();
         },
         /**
          * 角色
@@ -77,7 +61,7 @@ layui.define(["common","form",'util','sha256'],function (exports) {
                 private.submit(formdata);
                 return false;
             });
-            private.fixbar();
+            common.fixBar();
         },
         /**
          * 用户注册
@@ -88,10 +72,10 @@ layui.define(["common","form",'util','sha256'],function (exports) {
                 private.submit(formdata);
                 return false;
             });
-            private.fixbar();
+            common.fixBar();
         },
         fixbar:function () {
-            private.fixbar();
+            common.fixBar();
         }
     };
     exports("form_a_e",obj);
