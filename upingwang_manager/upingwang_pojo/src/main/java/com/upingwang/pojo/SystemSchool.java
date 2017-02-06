@@ -1,22 +1,33 @@
 package com.upingwang.pojo;
 
+import org.hibernate.validator.constraints.NotBlank;
+
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 public class SystemSchool {
+
     private Long id;
 
+    @NotNull(message = "教育局为空")
     private Long bureauId;
+
 
     private String schoolCode;
 
+    @NotBlank(message = "学校名称为空")
     private String schoolName;
 
+    @NotBlank(message = "学校地址为空")
     private String schoolAddress;
 
+    @NotBlank(message = "学校LOGO为空")
     private String schoolLogo;
 
+    @NotBlank(message = "学校联系人为空")
     private String schoolLinkman;
 
+    @NotBlank(message = "学校联系方式为空")
     private String schoolLinkphone;
 
     private Integer status;

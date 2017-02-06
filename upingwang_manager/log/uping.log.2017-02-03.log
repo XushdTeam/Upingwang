@@ -4760,3 +4760,13 @@ Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationExce
 	at java.lang.reflect.Method.invoke(Method.java:606) ~[na:1.7.0_80]
 	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:358) ~[mybatis-spring-1.2.2.jar:1.2.2]
 	... 103 common frames omitted
+2017-02-04 00:18:00.087 [http-bio-8082-exec-8] WARN  org.springframework.web.servlet.PageNotFound - No mapping found for HTTP request with URI [/Center.html] in DispatcherServlet with name 'uping-dispathcher'
+2017-02-04 00:18:00.299 [http-bio-8082-exec-4] WARN  org.springframework.web.servlet.PageNotFound - No mapping found for HTTP request with URI [/favicon.ico] in DispatcherServlet with name 'uping-dispathcher'
+2017-02-04 00:18:05.400 [http-bio-8082-exec-8] WARN  org.springframework.web.servlet.PageNotFound - No mapping found for HTTP request with URI [/Center.html] in DispatcherServlet with name 'uping-dispathcher'
+2017-02-04 00:18:06.766 [http-bio-8082-exec-8] WARN  org.springframework.web.servlet.PageNotFound - No mapping found for HTTP request with URI [/Center.html] in DispatcherServlet with name 'uping-dispathcher'
+2017-02-04 00:18:13.015 [http-bio-8082-exec-8] WARN  org.springframework.web.servlet.PageNotFound - No mapping found for HTTP request with URI [/Center.html] in DispatcherServlet with name 'uping-dispathcher'
+2017-02-04 00:18:58.530 [http-bio-8082-exec-8] WARN  org.springframework.web.servlet.PageNotFound - No mapping found for HTTP request with URI [/Center.html] in DispatcherServlet with name 'uping-dispathcher'
+2017-02-04 00:19:05.248 [http-bio-8082-exec-8] WARN  org.springframework.web.servlet.PageNotFound - No mapping found for HTTP request with URI [/Center.html] in DispatcherServlet with name 'uping-dispathcher'
+2017-02-04 00:19:31.138 [http-bio-8082-exec-8] WARN  org.springframework.web.servlet.PageNotFound - No mapping found for HTTP request with URI [/Center.html] in DispatcherServlet with name 'uping-dispathcher'
+2017-02-04 00:19:34.780 [http-bio-8082-exec-8] WARN  org.springframework.web.servlet.PageNotFound - No mapping found for HTTP request with URI [/Center.html] in DispatcherServlet with name 'uping-dispathcher'
+2017-02-04 00:21:43.520 [http-bio-8082-exec-6] WARN  org.springframework.web.servlet.PageNotFound - No mapping found for HTTP request with URI [/Center.html] in DispatcherServlet with name 'uping-dispathcher'

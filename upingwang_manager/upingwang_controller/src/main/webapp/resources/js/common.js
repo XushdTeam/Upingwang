@@ -45,6 +45,37 @@ layui.define(['layer','util'], function (exports) {
             });
         },
         /**
+         * ajax POST
+         * @param u{url}
+         * @param d{DATA}
+         * @param c{callBack}
+         */
+        ajaxPost:function(u,d,c){
+            obj.showLoading();
+            $.ajax({
+                url: u,
+                type: "POST",
+                dataType: "JSON",
+                data: d,
+                success: function (data, startic) {
+                    obj.closeLoading();
+                    if (data.status == 200) {
+                        c(null,data);
+                    } else if (data.status == 401){
+                        //没有权限
+                        obj.layerAlertW("<span class=red>"+data.message+"</span>");
+                    } else {
+                        c(data.message);
+                    }
+                },
+                error: function (e) {
+                    obj.closeLoading();
+                    c("Net Lost");
+                }
+            });
+
+        },
+        /**
          * 删除 确认 提交
          * @param title
          * @param text
