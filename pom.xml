@@ -10,6 +10,7 @@
     <modules>
         <module>upingwang_common</module>
         <module>upingwang_manager</module>
+        <module>MybatisGenerator</module>
     </modules>
 
     <packaging>pom</packaging>
@@ -27,7 +28,7 @@
         <logback-ext-spring>0.1.4</logback-ext-spring>
         <fastjson.version>1.2.7</fastjson.version>
         <druid.version>1.0.20</druid.version>
-        <httpclient.version>4.3.5</httpclient.version>
+        <httpclient.version>4.5</httpclient.version>
         <jstl.version>1.2</jstl.version>
         <servlet-api.version>2.5</servlet-api.version>
         <jsp-api.version>2.0</jsp-api.version>
@@ -44,6 +45,7 @@
         <aspectjweaver>1.8.6</aspectjweaver>
         <hibernate.validator.version>5.1.1.Final</hibernate.validator.version>
         <cglib.version>3.1</cglib.version>
+        <aliyun-sdk-oss.version>2.4.0</aliyun-sdk-oss.version>
     </properties>
 
     <dependencyManagement>
@@ -249,9 +251,9 @@
                 <version>${hibernate.validator.version}</version>
             </dependency>
             <dependency>
-                <groupId>cglib</groupId>
-                <artifactId>cglib</artifactId>
-                <version>${cglib.version}</version>
+                <groupId>com.aliyun.oss</groupId>
+                <artifactId>aliyun-sdk-oss</artifactId>
+                <version>${aliyun-sdk-oss.version}</version>
             </dependency>
         </dependencies>
 
