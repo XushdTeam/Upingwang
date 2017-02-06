@@ -56,7 +56,7 @@ public class UploadServiceImpl implements UploadService {
 
             String newFileName = FileUploadUtils.UploadFileOSS(param,filedata.getBytes());
 
-            return JsonResult.build(200,OperateEnum.SUCCESS.getStateInfo(),OSSURL+key+newFileName+ADVERT_STYLE);
+            return JsonResult.build(200,OperateEnum.FILE_UPLOAD_SUCCESS.getStateInfo(),OSSURL+key+newFileName+ADVERT_STYLE);
 
         }catch (Exception e){
             e.printStackTrace();
