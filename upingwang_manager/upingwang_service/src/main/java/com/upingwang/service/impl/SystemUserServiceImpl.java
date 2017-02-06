@@ -7,20 +7,21 @@ import com.upingwang.common.dto.PageSearchParam;
 import com.upingwang.common.enums.OperateEnum;
 import com.upingwang.common.result.JsonResult;
 import com.upingwang.common.target.SystemServiceLog;
-import com.upingwang.common.utils.IDUtils;
 import com.upingwang.common.utils.SqlUtils;
 import com.upingwang.mapper.SystemRoleMapper;
 import com.upingwang.mapper.SystemUserMapper;
 import com.upingwang.mapper.SystemUserRoleMapper;
-import com.upingwang.pojo.*;
+import com.upingwang.pojo.SystemRole;
+import com.upingwang.pojo.SystemUser;
+import com.upingwang.pojo.SystemUserExample;
+import com.upingwang.pojo.SystemUserRoleExample;
 import com.upingwang.service.SystemUserService;
+import com.upingwang.service.UploadService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -44,12 +45,8 @@ public class SystemUserServiceImpl implements SystemUserService {
     @Autowired
     private SystemRoleMapper roleMapper;
 
-
-    @Value("${IMAGE_BASE_URL}")
-    private String IMAGE_BASE_URL;
-    @Value("${FILI_UPLOAD_PATH}")
-    private String FILI_UPLOAD_PATH;
-
+    @Autowired
+    private UploadService uploadService;
 
     @Override
     public SystemUser getSystemUserByUserPhone(String userPhone) {
@@ -133,36 +130,22 @@ public class SystemUserServiceImpl implements SystemUserService {
     @SystemServiceLog(module = "用户管理", methods = "用户头像修改")
     @Override
     public JsonResult userAdvertUpload(MultipartFile filedata, long userId) {
-        try {
-            if (filedata.isEmpty()) return JsonResult.build(OperateEnum.FILE_EMPTY);
-            if (filedata.getSize() > 500 * 1024) return JsonResult.build(OperateEnum.FILE_SIZE);
 
+        JsonResult result = uploadService.uploadImg(filedata, "userAdvert/");
 
-            String originalFilename = filedata.getOriginalFilename();
-            // 新文件名
-            String newFileName = IDUtils.genImageName() + originalFilename.substring(originalFilename.lastIndexOf("."));
-
-            File targetFile = new File(FILI_UPLOAD_PATH + "/advert/", newFileName);
-            if (!targetFile.exists()) {
-                targetFile.mkdirs();
-            }
-
-            filedata.transferTo(targetFile);
-            String httpUrl = IMAGE_BASE_URL + "/advert/" + newFileName;
+        if (result.getStatus() == 200) {
             //更新用户信息
             SystemUser user = new SystemUser();
             user.setId(userId);
-            user.setUserAdvert(httpUrl);
+            user.setUserAdvert(result.getData().toString());
             int res = systemUserMapper.updateByPrimaryKeySelective(user);
             if (res > 0) {
-                return JsonResult.build(200, OperateEnum.SUCCESS.getStateInfo(), httpUrl);
+                return result;
             } else {
                 return JsonResult.build(OperateEnum.FAILE);
             }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            return JsonResult.build(OperateEnum.FAILE);
+        } else {
+            return result;
         }
     }
 

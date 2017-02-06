@@ -52,6 +52,20 @@ layui.use(['layer','common','element'], function () {
             }
         },
         /**
+         * 单向ajax
+         */
+        doAjax:function () {
+            var url = $(this).data("href");
+            common.ajax(url,"POST","json",{}, function (err, res) {
+                if (err){
+                    common.layerAlertE(err,"提示");
+                }else {
+                    common.layerAlertS(res.message);
+                }
+            });
+
+        },
+        /**
          * 删除
          */
         doDelete:function(){

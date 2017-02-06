@@ -137,7 +137,6 @@
         var $ = layui.jquery,
                 common = layui.common,
                 form = layui.form(),
-                util = layui.util,
                 form_a_e = layui.form_a_e,
                 sha256 = layui.sha256;
 

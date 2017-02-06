@@ -52,6 +52,7 @@ public class MenuController extends GlobalController {
         model.addAttribute("listUrl","/menu/list");
         model.addAttribute("handleUrl","/menu/handle");
         model.addAttribute("deleteUrl","/menu/delete");
+        model.addAttribute("redisClear","/menu/redis/clear");
 
         return "system/menu";
     }
@@ -160,6 +161,15 @@ public class MenuController extends GlobalController {
     @ResponseBody
     public JsonResult menuDelete(@PathVariable String id){
         OperateEnum res = menuService.deleteMenu(Long.parseLong(id));
+        return JsonResult.build(res);
+    }
+
+    @RequiresPermissions("/menu/redis/clear")
+    @SystemControllerLog(module = "菜单管理",methods = "菜单缓存清除")
+    @RequestMapping(value = "/menu/redis/clear",method = RequestMethod.POST)
+    @ResponseBody
+    public JsonResult menuRedisClear(){
+        OperateEnum res = menuService.menuRedisClear();
         return JsonResult.build(res);
     }
 

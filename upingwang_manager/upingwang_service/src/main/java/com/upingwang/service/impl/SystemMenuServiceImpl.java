@@ -111,7 +111,7 @@ public class SystemMenuServiceImpl implements SystemMenuService {
     @Override
     public JsonResult getMenuListForWeb(String typeId) {
         //命中缓存
-      /*  try {
+        try {
             String jsonResult = jedisClient.hget(MANAGER_MENU_KEY, typeId);
             if (!StringUtils.isBlank(jsonResult)) {
                 LOGGER.info("命中缓存 MANAGER_MENU_KEY:{}", jsonResult);
@@ -119,17 +119,33 @@ public class SystemMenuServiceImpl implements SystemMenuService {
             }
         } catch (Exception e) {
             e.printStackTrace();
-        }*/
+        }
         List<MenuNode> results = getByParentId(Long.parseLong(typeId), false);
         //向缓存中添加
-       /* try {
+        try {
             String jsonResult = JsonUtils.objectToJson(results);
             jedisClient.hset(MANAGER_MENU_KEY, typeId, jsonResult);
             LOGGER.info("添加缓存 MANAGER_MENU_KEY:{}", jsonResult);
         } catch (Exception e) {
             e.printStackTrace();
-        }*/
+        }
         return JsonResult.OK(results);
+    }
+
+    @Override
+    public OperateEnum menuRedisClear() {
+        try {
+            long res = jedisClient.del(MANAGER_MENU_KEY);
+            if(res>=0){
+                return OperateEnum.SUCCESS;
+            }else{
+                return OperateEnum.FAILE;
+            }
+
+        }catch (Exception e) {
+            e.printStackTrace();
+            return OperateEnum.FAILE;
+        }
     }
 
     /**

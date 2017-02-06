@@ -87,4 +87,15 @@ public class SystemBureauServiceImpl implements SystemBureauService {
             return OperateEnum.FAILE;
         }
     }
+
+    @Override
+    public List<SystemBureau> selectBureauListAll() {
+        SystemBureauExample example = new SystemBureauExample();
+
+        SystemBureauExample.Criteria criteria = example.createCriteria();
+        criteria.andDelflagEqualTo(0).andStatusEqualTo(1);
+        example.setOrderByClause("id desc");
+
+        return bureauMapper.selectByExample(example);
+    }
 }

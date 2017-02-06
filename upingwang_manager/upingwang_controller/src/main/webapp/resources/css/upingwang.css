@@ -263,6 +263,7 @@ div.default i { font-size: 16px; padding: 0px 5px; }
 /*form*/
 .form-textarea-label{height: 82px;line-height: 82px!important;}
 .form-textarea{height: 100px;resize: none}
+.form-upload-label{height: 132px;line-height: 132px!important;}
 
 .site-demo-upload,
 .site-demo-upload img{width: 150px;height: 150px;border-radius: 100%;}
@@ -270,6 +271,11 @@ div.default i { font-size: 16px; padding: 0px 5px; }
 .site-demo-upload .site-demo-upbar{position: absolute; top: 50%; left: 50%; margin: -18px 0 0 -56px;}
 .site-demo-upload .layui-upload-button{background-color: rgba(0,0,0,.2); color: rgba(255,255,255,1);}
 
+.site-upload,
+.site-upload img{width: 150px;height: 150px;}
+.site-upload{position: relative;background: #e2e2e2;}
+.site-upload .site-upbar{position: absolute; top: 50%; left: 50%; margin: -18px 0 0 -56px;}
+.site-upload .layui-upload-button{background-color: rgba(0,0,0,.2); color: rgba(255,255,255,1);}
 
 .avatar-add{position:relative; width:373px; height:373px; background-color:#F2F2F5;}
 .avatar-add .upload-img{position:absolute; left:50%; top:35px; margin:0 0 0 -60px;}
@@ -277,7 +283,7 @@ div.default i { font-size: 16px; padding: 0px 5px; }
 .avatar-add .loading{display:none; position:absolute; width:100%; height:100%; left:0; top:0; padding: 0; background-color:#000; opacity:0.5; filter: Alpha(opacity=50);}
 .avatar-add p{position:absolute; top:70px; width:100%; margin-top: 10px;; font-size:12px; text-align:center; color:#999;}
 
-
+.normal .loading{display:none; position:absolute; width:100%; height:100%; left:0; top:0; padding: 0; background-color:#000; opacity:0.5; filter: Alpha(opacity=50);}
 
 .layui-layout-admin .layui-footer {
     position: fixed;
@@ -291,7 +297,7 @@ div.default i { font-size: 16px; padding: 0px 5px; }
 }
 
 .loading {
-    background-image: url(http://res.layui.com/images/fly/loading.gif);
+    background-image: url("/resources/images/loading.gif");
     background-position: center center;
     background-repeat: no-repeat;
 }

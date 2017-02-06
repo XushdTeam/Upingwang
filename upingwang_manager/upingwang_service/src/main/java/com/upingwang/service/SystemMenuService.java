@@ -31,4 +31,7 @@ public interface SystemMenuService {
     OperateEnum deleteMenu(long id);
 
     JsonResult getMenuListForWeb(String typeId);
+
+    OperateEnum menuRedisClear();
+
 }
