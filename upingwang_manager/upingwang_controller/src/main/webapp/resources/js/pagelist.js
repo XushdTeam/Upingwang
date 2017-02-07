@@ -1,14 +1,14 @@
 /**
  * Created by Xushd on 2017/1/26 0026.
  */
-layui.define(["common","form","laytpl","laypage",'laydate','util'],function (exports) {
+layui.define(["app","form","laytpl","laypage",'laydate','util'],function (exports) {
     var $= layui.jquery,
         form =layui.form(),
         laypage = layui.laypage,
         laytpl = layui.laytpl,
         laydate = layui.laydate,
         util = layui.util,
-        common = layui.common;
+        app = layui.app;
 
     var _pageSize = 10;
 
@@ -21,7 +21,7 @@ layui.define(["common","form","laytpl","laypage",'laydate','util'],function (exp
          * @param callback
          */
         getList:function(url,data,callback){
-            common.ajax(url,"POST","json",data,callback);
+            app.ajaxPost(url,data,callback);
         },
         /**
          * 装配请求参数
@@ -84,7 +84,7 @@ layui.define(["common","form","laytpl","laypage",'laydate','util'],function (exp
                     if(!first) {
                         private.getList(url,private.intPageData(curr,_pageSize,searchFileds),function (err,res) {
                             if (err){
-                                common.layerAlertE("ERROR",err);
+                                app.layerAlertE(err);
                             }else{
                                 var data = {rows:res.data.rows};
                                 callback(data);
@@ -114,7 +114,7 @@ layui.define(["common","form","laytpl","laypage",'laydate','util'],function (exp
 
             private.getList(url, private.intPageData(1, _pageSize, searchField), function (err, res) {
                 if (err) {
-                    common.layerAlertE(err, "错误");
+                    app.layerAlertE(err);
                 } else {
                     //初始化列表
                     private.initTpl(tpl, {rows: res.data.rows});
@@ -134,7 +134,7 @@ layui.define(["common","form","laytpl","laypage",'laydate','util'],function (exp
         initHTML:function (tpl,url) {
             private.getList(url, {}, function (err, res) {
                 if (err) {
-                    common.layerAlertE(err, "错误");
+                    app.layerAlertE(err);
                 } else {
                     //初始化列表
                     private.initTpl(tpl, {rows: res.data});
@@ -150,7 +150,7 @@ layui.define(["common","form","laytpl","laypage",'laydate','util'],function (exp
             form.on("submit(btnsearch)", function (formdata) {
                 //查询字段不为空执行查询
                 if(private.isFormNull(formdata.field)){
-                    common.layerAlertI("查询条件为空！");
+                    app.layerAlertI("查询条件为空！");
                 }else{
                     private.initPagingHTML(tpl,url,formdata.field);
                 }

@@ -1,11 +1,10 @@
 /**
- * Created by Administrator on 2017/1/29 0029.
+ * Created by Xushd on 2017/1/29 0029.
  */
-layui.define(["common","form",'util','sha256'],function (exports) {
+layui.define(["app","form",'util'],function (exports) {
     var $ = layui.jquery,
         form = layui.form(),
-        common = layui.common,
-        sha256 = layui.sha256;
+        app = layui.app;
 
     var backUrl = $(".main-wrap").data("href");
 
@@ -13,18 +12,15 @@ layui.define(["common","form",'util','sha256'],function (exports) {
 
         submit:function (data) {
             var url = $(data.elem).data("href");
-            common.ajax(url,"POST","json",data.field,function (err,res) {
-                if(err){
-                    common.layerAlertE(err, '提示');
-                }else{
-                    common.layerAlertS(res.message);
-                    common.time(function () {
-                       window.location.href = backUrl;
+            app.ajaxPost(url,data.field,function(e,r){
+                if(e){app.layerAlertE(e)}
+                else {
+                    app.layerAlertS(r.message);
+                    app.time(function(){
+                       app.route(backUrl);
                     });
-
                 }
             });
-           
         },
         /**
          * 绑定form提交
@@ -44,38 +40,36 @@ layui.define(["common","form",'util','sha256'],function (exports) {
                 private.submit(formdata);
                 return false;
             });
-            common.fixBar();
+            app.fixBar();
         },
         /**
          * 角色
          */
         roleInit:function () {
             private.formOn(function(formdata){
-
                 var permission = [];
                 $.each( $('input[name="permission"]:checked'),function(j,i){
                     permission.push(i.value);
                 });
                 formdata.field.permission = permission;
-
                 private.submit(formdata);
                 return false;
             });
-            common.fixBar();
+            app.fixBar();
         },
         /**
          * 用户注册
          */
         userInit:function(){
             private.formOn(function(formdata){
-                formdata.field.password = sha256.sha256_digest("123456");
+                formdata.field.password = app.sha("123456");
                 private.submit(formdata);
                 return false;
             });
-            common.fixBar();
+            app.fixBar();
         },
         fixbar:function () {
-            common.fixBar();
+            app.fixbar();
         }
     };
     exports("form_a_e",obj);

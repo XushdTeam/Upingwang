@@ -1,11 +1,11 @@
 /**
  * Created by Xushd on 2017/1/19 0019.
  */
-layui.define(['form','sha256','app','element'], function(exports){
+layui.define(['form','app','element'], function(exports){
     var form = layui.form(),
         app = layui.app,
-        device = layui.device(),
-        sha256 = layui.sha256;
+        device = layui.device();
+
     var obj={};
     obj.init=function () {
         //阻止IE7以下访问
@@ -17,7 +17,7 @@ layui.define(['form','sha256','app','element'], function(exports){
         //提交
         form.on('submit(btnsubmit)', function (formdata) {
             var data = formdata.field;
-            data.password = sha256.sha256_digest(data.password);
+            data.password = app.sha(data.password);
             app.ajaxPost('/loginCheck',data,function (e, r) {
                 if(e){
                     app.layerMessageE(e);
