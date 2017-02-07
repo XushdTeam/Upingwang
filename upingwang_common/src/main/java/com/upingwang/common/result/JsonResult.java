@@ -1,5 +1,6 @@
 package com.upingwang.common.result;
 
+import com.upingwang.common.enums.AuthEnum;
 import com.upingwang.common.enums.OperateEnum;
 
 
@@ -34,6 +35,13 @@ public class JsonResult {
     }
 
     public static JsonResult build(OperateEnum result){
+        if (result.getState()==200){
+            return new JsonResult(200,result.getStateInfo(),null);
+        }else{
+            return new JsonResult(500,result.getStateInfo(),null);
+        }
+    }
+    public static JsonResult build(AuthEnum result){
         if (result.getState()==200){
             return new JsonResult(200,result.getStateInfo(),null);
         }else{

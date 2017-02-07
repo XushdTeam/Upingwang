@@ -1,6 +1,6 @@
 package com.upingwang.controller;
 
-import com.upingwang.common.enums.AuthError;
+import com.upingwang.common.enums.AuthEnum;
 import com.upingwang.common.enums.SessionKey;
 import com.upingwang.common.result.JsonResult;
 import com.upingwang.common.target.SystemControllerLog;
@@ -69,7 +69,7 @@ public class LoginController extends GlobalController{
         }
         String verifyCode = (String) request.getSession().getAttribute(String.valueOf(SessionKey.VERIFYCODE_KEY));
         if(!StringUtils.equals(systemUser.getVerifyCode(),verifyCode)){
-            return JsonResult.Error(String.valueOf(AuthError.VERIFYCODE_ERROR));
+            return JsonResult.Error(AuthEnum.VERIFYCODE_ERROR.getStateInfo());
         }
 
         //Form 提交字段非空验证
@@ -86,13 +86,12 @@ public class LoginController extends GlobalController{
         try {
             //shiro 用户登录验证 成功不抛错误 否则抛出错误
             UsernamePasswordToken token = new UsernamePasswordToken(systemUser.getUserPhone(),systemUser.getPassword());
-
             String rememberMe = String.valueOf(request.getParameter("remember"));
             if(rememberMe.equals("on")){
                 token.setRememberMe(true);
             }
             subject.login(token);
-            return JsonResult.OK("/index");
+            return JsonResult.build(200,AuthEnum.SUCCESS.getStateInfo(),"/index");
         }catch (AuthenticationException e){
             LOGGER.error("error:{}",e.getMessage());
             return JsonResult.Error(e.getMessage());
@@ -120,7 +119,7 @@ public class LoginController extends GlobalController{
                 StringUtils.equals(pwd,user.getPassword())){
             return JsonResult.OK();
         }else{
-            return JsonResult.Error(AuthError.USER_ERROR_PASSWORD.toString());
+            return JsonResult.Error(AuthEnum.USER_ERROR_PASSWORD.getStateInfo());
         }
     }
 

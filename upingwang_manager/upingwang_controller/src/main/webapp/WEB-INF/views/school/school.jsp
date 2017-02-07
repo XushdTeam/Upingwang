@@ -52,15 +52,21 @@
                     <col width="10%">
                     <col width="10%">
                     <col width="10%">
+                    <col width="10%">
+                    <col width="10%">
+                    <col width="15%">
                     <col width="5%">
                     <col width="15%">
                 </colgroup>
                 <thead>
                 <tr>
                     <th>ID</th>
-                    <th>名称</th>
-                    <th>区域</th>
-                    <th>区域CODE</th>
+                    <th>LOGO</th>
+                    <th>学校CODE</th>
+                    <th>学校名称</th>
+                    <th>联系人</th>
+                    <th>联系电话</th>
+                    <th>教育局</th>
                     <th>是否启用</th>
                     <th>操作</th>
                 </tr>
@@ -70,9 +76,12 @@
                     {{#  layui.each(d.rows, function(index, item){ }}
                     <tr>
                         <td>{{ item.id }}</td>
-                        <td>{{ item.bureauName }}</td>
-                        <td>{{ item.bureauArea }}</td>
-                        <td>{{ item.bureauCode}}</td>
+                        <td><img src="{{ item.schoolLogo }}" width="50" height="50"/></td>
+                        <td>{{ item.schoolCode }}</td>
+                        <td>{{ item.schoolName }}</td>
+                        <td>{{ item.schoolLinkman }}</td>
+                        <td>{{ item.schoolLinkphone}}</td>
+                        <td>{{ item.bureauName}}</td>
                         <td align="center">{{# if (item.status) { }}
                             <i class="fa fa-toggle-on unlock"></i>
                             {{# } else { }}

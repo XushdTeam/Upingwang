@@ -4,7 +4,6 @@
  */
 layui.define(['layer','util'], function (exports) {
     var $ = layui.jquery,util = layui.util;
-
     var obj = {
         /**
          * ajax 方法

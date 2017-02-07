@@ -1,5 +1,6 @@
 package com.upingwang.service;
 
+import com.upingwang.common.dto.PageSearchParam;
 import com.upingwang.common.result.JsonResult;
 import com.upingwang.pojo.SystemSchool;
 
@@ -11,4 +12,6 @@ public interface SystemSchoolService {
 
 
     JsonResult insertSchool(SystemSchool school);
+
+    JsonResult getSchoolList(PageSearchParam param);
 }

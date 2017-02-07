@@ -7,6 +7,12 @@ import java.util.Date;
 
 public class SystemSchool {
 
+    //教育局名称
+
+    private String bureauName;
+
+
+
     private Long id;
 
     @NotNull(message = "教育局为空")
@@ -132,5 +138,13 @@ public class SystemSchool {
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+    public String getBureauName() {
+        return bureauName;
+    }
+
+    public void setBureauName(String bureauName) {
+        this.bureauName = bureauName;
     }
 }

@@ -1,5 +1,6 @@
 package com.upingwang.controller;
 
+import com.upingwang.common.dto.PageSearchParam;
 import com.upingwang.common.result.JsonResult;
 import com.upingwang.common.target.SystemControllerLog;
 import com.upingwang.pojo.SystemBureau;
@@ -112,5 +113,13 @@ public class SchoolController extends GlobalController {
             return res;
         }
 
+    }
+
+    @SystemControllerLog(module = "学校管理",methods = "学校列表")
+    @RequestMapping(value = "/school/list",method = RequestMethod.POST)
+    @ResponseBody
+    public JsonResult schoolList(PageSearchParam param){
+        JsonResult result = schoolService.getSchoolList(param);
+        return result;
     }
 }
