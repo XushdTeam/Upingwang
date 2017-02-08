@@ -133,25 +133,19 @@
 </div>
 <script type="text/javascript" src="/resources/js/event.js"></script>
 <script>
-    layui.use(['form','upload','common','form_a_e','sha256'], function(){
+    layui.use(['form','upload','app','element'], function(){
         var $ = layui.jquery,
-                common = layui.common,
-                form = layui.form(),
-                form_a_e = layui.form_a_e,
-                sha256 = layui.sha256;
+                app = layui.app,
+                form = layui.form();
 
         //初始化bar
-        form_a_e.fixbar();
-
+        app.fixBar();
         //第一个div
         form.on("submit(div1)",function(filedata){
             var url = $(filedata.elem).data("href");
-            common.ajax(url,"POST","json",filedata.field,function (err,res) {
-                if(err){
-                    common.layerAlertE(err, '提示');
-                }else{
-                    common.layerAlertS(res.message);
-                }
+            app.ajaxPost(url,filedata.field,function(e,r){
+               if(e){app.layerAlertE(e)}
+               else{app.layerAlertS(r.message)}
             });
             return false;
         });
@@ -160,18 +154,15 @@
         form.on("submit(div3)",function(filedata){
             var url = $(filedata.elem).data("href");
             if(filedata.field.pass1 != filedata.field.pass2){
-                common.layerAlertE("两次新密码不一致", '提示');
+                app.layerAlertE("两次新密码不一致", '提示');
                 return false;
             }
-            filedata.field.pass0 = sha256.sha256_digest(filedata.field.pass0);
-            filedata.field.pass1 = sha256.sha256_digest(filedata.field.pass1);
-            filedata.field.pass2 = sha256.sha256_digest(filedata.field.pass2);
-            common.ajax(url,"POST","json",filedata.field,function (err,res) {
-                if(err){
-                    common.layerAlertE(err, '提示');
-                }else{
-                    common.layerAlertS(res.message);
-                }
+            filedata.field.pass0 = app.sha(filedata.field.pass0);
+            filedata.field.pass1 = app.sha(filedata.field.pass1);
+            filedata.field.pass2 = app.sha(filedata.field.pass2);
+            app.ajaxPost(url,filedata.field,function(e,r){
+                if(e){app.layerAlertE(e)}
+                else{app.layerAlertS(r.message)}
             });
             return false;
         });
@@ -188,10 +179,10 @@
             success: function(res) {
                 $(".loading").hide();
                 if (res.status == 200) {
-                    common.layerAlertS(res.message);
+                    app.layerAlertS(res.message);
                     document.getElementById("imgShow").src= res.data;
                 } else {
-                    common.layerAlertE(res.message, '提示');
+                    app.layerAlertE(res.message);
                 }
             }
         });
@@ -204,12 +195,9 @@
                 role.push(i.value);
             });
             filedata.field.role = role;
-            common.ajax(url,"POST","json",filedata.field,function (err,res) {
-                if(err){
-                    common.layerAlertE(err, '提示');
-                }else{
-                    common.layerAlertS(res.message);
-                }
+            app.ajaxPost(url,filedata.field,function(e,r){
+                if(e){app.layerAlertE(e)}
+                else{app.layerAlertS(r.message)}
             });
             return false;
         });

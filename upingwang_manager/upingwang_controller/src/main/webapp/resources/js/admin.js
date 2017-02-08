@@ -4,11 +4,10 @@
  */
 
 
-layui.define(['app', 'navbar', 'tab','sha256'], function(exports){
+layui.define(['app', 'navbar', 'tab'], function(exports){
     var $ = layui.jquery,
         app = layui.app,
         navbar = layui.navbar(),
-        sha256 = layui.sha256,
         tab = layui.tab({elem: '.layui-tab-card'});
     var obj = {};
     obj.init = function () {
@@ -38,7 +37,7 @@ layui.define(['app', 'navbar', 'tab','sha256'], function(exports){
                     //设置navbar
                     navbar.set({
                         elem: '#admin-navbar-side', //存在navbar数据的容器ID
-                        data: res.data
+                        data: r.data
                     });
                     //渲染navbar
                     navbar.render();

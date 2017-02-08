@@ -5,7 +5,7 @@
 layui.config({
     base: '/resources/js/' //自定义layui组件的目录
 });
-layui.use(['layer','app','element'], function () {
+layui.use(['layer','app'], function () {
 
     var $ = layui.jquery,
         app=layui.app,active={};
@@ -48,7 +48,7 @@ layui.use(['layer','app','element'], function () {
     active.doDelete = function () {
         var url = $(this).data("href");
         var text = $(this).data("text");
-        app.layerDel(text,url,["确定","容我想想"],function () {
+        app.layerDel(text,function (e,r) {
             app.ajaxPost(url, {}, function (e, r) {
                 if (e) {
                     app.layerAlertE(e);
@@ -125,7 +125,7 @@ layui.use(['layer','app','element'], function () {
                         });
                         return;
                     }
-                    pwd = sha256.sha256_digest(pwd);
+                    pwd = app.sha(pwd);
                     app.ajaxPost("/lock/" + userName + "/" + pwd,{},function(e,r){
                         if(e){
                             layer.msg(r.message, {icon: 2, time: 1000});
@@ -137,7 +137,5 @@ layui.use(['layer','app','element'], function () {
 
             }
         });
-
-
     };
 });

@@ -65,12 +65,12 @@
     <script type="text/javascript" src="/resources/js/event.js"></script>
     <script type="text/javascript" src="/resources/js/areafun.js"></script>
     <script type="text/javascript">
-        layui.use(["form","common"], function () {
+        layui.use(["form","app"], function () {
             var $ = layui.jquery,
                 form=layui.form(),
-                common = layui.common;
+                app = layui.app;
 
-            common.fixBar();
+            app.fixBar();
 
             form.verify({
                 not0: function(value){
@@ -93,22 +93,19 @@
                 } else {
                     if (area.value == 0) {
                         $(area).addClass("layui-form-danger");
-                        common.layerMessageE("请选择");
+                        app.layerMessageE("请选择");
                         return false;
                     }
                     formdata.field.bureauCode = formdata.field.area;
                     formdata.field.bureauArea = $(prov).find("option:selected").text() + $(city).find("option:selected").text() + $(area).find("option:selected").text();
                 }
-
-                common.ajax(url, "POST", "json", formdata.field, function (err, res) {
-                    if (err) {
-                        common.layerAlertE(err, '提示');
-                    } else {
-                        common.layerAlertS(res.message);
-                        common.time(function () {
-                            window.location.href = $(".main-wrap").data("href");
+                app.ajaxPost(url,filedata.field,function(e,r){
+                    if(e){app.layerAlertE(e)}
+                    else{
+                        app.layerAlertS(r.message);
+                        app.time(function(){
+                            app.route($(".main-wrap").data("href"));
                         });
-
                     }
                 });
                 return false;

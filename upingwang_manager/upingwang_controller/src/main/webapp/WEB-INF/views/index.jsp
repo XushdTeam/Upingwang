@@ -73,10 +73,10 @@
                             <a href="javascript:;"><i class="fa fa-gear" aria-hidden="true"></i> 设置</a>
                         </dd>
                         <dd>
-                            <a href="javascript:;" class="do-admin" data-type="doLock" ><i class="fa fa-lock" aria-hidden="true"></i> 锁屏</a>
+                            <a href="javascript:;" class="do-action" data-type="doLock" aria-hidden="true" ><i class="fa fa-lock" aria-hidden="true"></i> 锁屏</a>
                         </dd>
                         <dd>
-                            <a href="javascript:;" class="do-admin" data-type="doLoginOut" data-href="/logOut" ><i class="fa fa-dot-circle-o" aria-hidden="true"></i> 退出</a>
+                            <a href="javascript:;" class="do-action" data-type="doLoginOut" data-href="/logOut"  aria-hidden="true"><i class="fa fa-dot-circle-o" aria-hidden="true"></i> 退出</a>
                         </dd>
                     </dl>
                 </li>
@@ -117,10 +117,9 @@
     <jsp:include page="common/foot.jsp"/>
 </div>
 <!-- js脚本 -->
+<script type="text/javascript" src="/resources/js/event.js"></script>
 <script type="text/javascript">
-    layui.config({
-        base: '/resources/js/'
-    }).use('admin',function () {
+    layui.use('admin',function () {
         layui.admin.init();
     });
 </script>

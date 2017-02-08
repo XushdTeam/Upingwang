@@ -1,8 +1,8 @@
 /**
  * Created by Xushd on 2017/2/7 0007.
  */
-layui.define(['layer','util'],function (e) {
-    var $ = layui.jquery,util = layui.util,
+layui.define(['layer','util','sha256'],function (e) {
+    var $ = layui.jquery,util = layui.util,sha =layui.sha256,
     layer = parent.layer||layui.layer;
     var app={};
     /*提示*/
@@ -37,15 +37,17 @@ layui.define(['layer','util'],function (e) {
      * @param u{URL}
      * @param c{CALLBACK}
      */
-    app.layerDel=function (t,u,c) {
+    app.layerDel=function (t,c) {
         layer.confirm(t, {
             title: "询问",
             resize: false,
-            icon: 3,
             btn: ['确定删除', '容我想想'],
-            yes: function () {
-                app.ajaxPost(u,{},c);
-            }
+            btnAlign: 'c',
+            icon: 3
+        }, function () {
+            c();
+        }, function () {
+            app.layerMessageI("好吧！");
         });
     };
     /**
@@ -55,10 +57,10 @@ layui.define(['layer','util'],function (e) {
      * @param c{CALLBACK}
      */
     app.layerConfirm=function (t,b,c) {
-        parent.layer.confirm(t, {
-            title: "系统询问",
+        layer.confirm(t, {
+            title: "询问",
             resize: false,
-            btn: btn,
+            btn: b,
             btnAlign: 'c',
             icon: 3
         }, function () {
@@ -111,6 +113,7 @@ layui.define(['layer','util'],function (e) {
                 c("Net Lost");
             }
         });
+
     };
     /**
      * ajaxGET
@@ -138,6 +141,13 @@ layui.define(['layer','util'],function (e) {
                 c("Net Lost");
             }
         });
+    };
+    //sha256加密
+    app.sha=function(p){
+        return sha.sha256_digest(p);
+    };
+    app.throwError=function(t){
+        console.log(t);
     };
     e('app',app);
 });

@@ -85,10 +85,10 @@
     </div>
     <script type="text/javascript" src="/resources/js/event.js"></script>
     <script type="text/javascript">
-        layui.use(['form', 'upload', 'common'], function () {
+        layui.use(['form', 'upload', 'app'], function () {
             var $ = layui.jquery,
-                    form = layui.form(),
-                    common = layui.common;
+                form = layui.form(),
+                app = layui.app;
 
             /**
              * 绑定上传事件
@@ -101,11 +101,11 @@
                 success: function (res) {
                     $(".loading").hide();
                     if (res.status == 200) {
-                        common.layerAlertS(res.message);
+                        app.layerAlertS(res.message);
                         document.getElementById("imgShow").src = res.data;
                         $("#schoolLogo").val(res.data);
                     } else {
-                        common.layerAlertE(res.message, '提示');
+                        app.layerAlertE(res.message);
                     }
                 }
             });
@@ -113,17 +113,17 @@
             form.on("submit(btnsubmit)", function (formdata) {
                 var logo = $("#schoolLogo").val();
                 if (logo == "") {
-                    common.layerMessageE("LOGO请上传！");
+                    app.layerMessageE("LOGO请上传！");
                 } else {
                     formdata.field.schoolLogo = logo;
                     var url = $(formdata.elem).data("href");
-                    common.ajaxPost(url, formdata.field, function (e, r) {
+                    app.ajaxPost(url, formdata.field, function (e, r) {
                         if (e) {
-                            common.layerAlertE(e, '提示');
+                            app.layerAlertE(e);
                         } else {
-                            common.layerAlertS(r.message);
-                            common.time(function () {
-                                window.location.href = "${baseUrl}";
+                            app.layerAlertS(r.message);
+                            app.time(function () {
+                                app.route("${baseUrl}");
                             });
                         }
                     });
