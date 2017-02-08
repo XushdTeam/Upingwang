@@ -1,0 +1,155 @@
+2017-02-07 14:11:06.701 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization started
+2017-02-07 14:11:06.790 [localhost-startStop-1] INFO  o.s.web.context.support.XmlWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Tue Feb 07 14:11:06 CST 2017]; root of context hierarchy
+2017-02-07 14:11:06.835 [localhost-startStop-1] INFO  o.s.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring/spring-dao.xml]
+2017-02-07 14:11:07.012 [localhost-startStop-1] INFO  o.s.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring/spring-service.xml]
+2017-02-07 14:11:07.118 [localhost-startStop-1] INFO  o.s.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring/spring-jedis.xml]
+2017-02-07 14:11:07.368 [localhost-startStop-1] INFO  o.s.c.support.PropertySourcesPlaceholderConfigurer - Loading properties file from file [C:\Users\Administrator\IdeaProjects\UpingWang\upingwang_rest\target\classes\resource\db.properties]
+2017-02-07 14:11:07.369 [localhost-startStop-1] INFO  o.s.c.support.PropertySourcesPlaceholderConfigurer - Loading properties file from file [C:\Users\Administrator\IdeaProjects\UpingWang\upingwang_rest\target\classes\resource\resource.properties]
+2017-02-07 14:11:07.384 [localhost-startStop-1] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2017-02-07 14:11:07.853 [localhost-startStop-1] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2017-02-07 14:11:09.298 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2593 ms
+2017-02-07 14:14:37.595 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization started
+2017-02-07 14:14:37.683 [localhost-startStop-1] INFO  o.s.web.context.support.XmlWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Tue Feb 07 14:14:37 CST 2017]; root of context hierarchy
+2017-02-07 14:14:37.728 [localhost-startStop-1] INFO  o.s.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring/spring-dao.xml]
+2017-02-07 14:14:37.903 [localhost-startStop-1] INFO  o.s.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring/spring-service.xml]
+2017-02-07 14:14:38.006 [localhost-startStop-1] INFO  o.s.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring/spring-jedis.xml]
+2017-02-07 14:14:38.263 [localhost-startStop-1] INFO  o.s.c.support.PropertySourcesPlaceholderConfigurer - Loading properties file from file [C:\Users\Administrator\IdeaProjects\UpingWang\upingwang_rest\target\classes\resource\db.properties]
+2017-02-07 14:14:38.264 [localhost-startStop-1] INFO  o.s.c.support.PropertySourcesPlaceholderConfigurer - Loading properties file from file [C:\Users\Administrator\IdeaProjects\UpingWang\upingwang_rest\target\classes\resource\resource.properties]
+2017-02-07 14:14:38.280 [localhost-startStop-1] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2017-02-07 14:14:38.902 [localhost-startStop-1] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2017-02-07 14:14:40.234 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2636 ms
+2017-02-07 14:26:18.155 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization started
+2017-02-07 14:26:18.244 [localhost-startStop-1] INFO  o.s.web.context.support.XmlWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Tue Feb 07 14:26:18 CST 2017]; root of context hierarchy
+2017-02-07 14:26:18.285 [localhost-startStop-1] INFO  o.s.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring/spring-dao.xml]
+2017-02-07 14:26:18.485 [localhost-startStop-1] INFO  o.s.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring/spring-service.xml]
+2017-02-07 14:26:18.585 [localhost-startStop-1] INFO  o.s.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring/spring-jedis.xml]
+2017-02-07 14:26:18.862 [localhost-startStop-1] INFO  o.s.c.support.PropertySourcesPlaceholderConfigurer - Loading properties file from file [C:\Users\Administrator\IdeaProjects\UpingWang\upingwang_rest\target\classes\resource\db.properties]
+2017-02-07 14:26:18.862 [localhost-startStop-1] INFO  o.s.c.support.PropertySourcesPlaceholderConfigurer - Loading properties file from file [C:\Users\Administrator\IdeaProjects\UpingWang\upingwang_rest\target\classes\resource\resource.properties]
+2017-02-07 14:26:18.876 [localhost-startStop-1] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2017-02-07 14:26:19.347 [localhost-startStop-1] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2017-02-07 14:26:20.935 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2777 ms
+2017-02-07 14:28:57.518 [http-bio-8081-exec-10] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'uping-rest': initialization started
+2017-02-07 14:28:57.522 [http-bio-8081-exec-10] INFO  o.s.web.context.support.XmlWebApplicationContext - Refreshing WebApplicationContext for namespace 'uping-rest-servlet': startup date [Tue Feb 07 14:28:57 CST 2017]; parent: Root WebApplicationContext
+2017-02-07 14:28:57.523 [http-bio-8081-exec-10] INFO  o.s.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring/spring_mvc.xml]
+2017-02-07 14:28:57.676 [http-bio-8081-exec-10] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2017-02-07 14:28:58.010 [http-bio-8081-exec-10] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/index],methods=[GET]}" onto public java.lang.String com.upingwang.rest.controller.IndexController.index()
+2017-02-07 14:28:58.058 [http-bio-8081-exec-10] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.1.1.Final
+2017-02-07 14:28:58.273 [http-bio-8081-exec-10] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'uping-rest-servlet': startup date [Tue Feb 07 14:28:57 CST 2017]; parent: Root WebApplicationContext
+2017-02-07 14:28:58.326 [http-bio-8081-exec-10] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'uping-rest-servlet': startup date [Tue Feb 07 14:28:57 CST 2017]; parent: Root WebApplicationContext
+2017-02-07 14:28:58.429 [http-bio-8081-exec-10] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2017-02-07 14:28:58.457 [http-bio-8081-exec-10] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'uping-rest': initialization completed in 938 ms
+2017-02-07 14:28:58.464 [http-bio-8081-exec-10] WARN  org.springframework.web.servlet.PageNotFound - No mapping found for HTTP request with URI [/rest] in DispatcherServlet with name 'uping-rest'
+2017-02-07 14:29:02.021 [http-bio-8081-exec-10] WARN  org.springframework.web.servlet.PageNotFound - No mapping found for HTTP request with URI [/rest/] in DispatcherServlet with name 'uping-rest'
+2017-02-07 14:30:07.885 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization started
+2017-02-07 14:30:07.967 [localhost-startStop-1] INFO  o.s.web.context.support.XmlWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Tue Feb 07 14:30:07 CST 2017]; root of context hierarchy
+2017-02-07 14:30:08.008 [localhost-startStop-1] INFO  o.s.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring/spring-dao.xml]
+2017-02-07 14:30:08.155 [localhost-startStop-1] INFO  o.s.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring/spring-service.xml]
+2017-02-07 14:30:08.259 [localhost-startStop-1] INFO  o.s.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring/spring-jedis.xml]
+2017-02-07 14:30:08.584 [localhost-startStop-1] INFO  o.s.c.support.PropertySourcesPlaceholderConfigurer - Loading properties file from file [C:\Users\Administrator\IdeaProjects\UpingWang\upingwang_rest\target\classes\resource\db.properties]
+2017-02-07 14:30:08.585 [localhost-startStop-1] INFO  o.s.c.support.PropertySourcesPlaceholderConfigurer - Loading properties file from file [C:\Users\Administrator\IdeaProjects\UpingWang\upingwang_rest\target\classes\resource\resource.properties]
+2017-02-07 14:30:08.600 [localhost-startStop-1] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2017-02-07 14:30:09.030 [localhost-startStop-1] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2017-02-07 14:30:10.659 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2771 ms
+2017-02-07 14:31:13.487 [http-bio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'uping-rest': initialization started
+2017-02-07 14:31:13.490 [http-bio-8081-exec-1] INFO  o.s.web.context.support.XmlWebApplicationContext - Refreshing WebApplicationContext for namespace 'uping-rest-servlet': startup date [Tue Feb 07 14:31:13 CST 2017]; parent: Root WebApplicationContext
+2017-02-07 14:31:13.491 [http-bio-8081-exec-1] INFO  o.s.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring/spring_mvc.xml]
+2017-02-07 14:31:13.671 [http-bio-8081-exec-1] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2017-02-07 14:31:13.868 [http-bio-8081-exec-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/index],methods=[GET]}" onto public java.lang.String com.upingwang.rest.controller.IndexController.index()
+2017-02-07 14:31:13.944 [http-bio-8081-exec-1] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.1.1.Final
+2017-02-07 14:31:14.206 [http-bio-8081-exec-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'uping-rest-servlet': startup date [Tue Feb 07 14:31:13 CST 2017]; parent: Root WebApplicationContext
+2017-02-07 14:31:14.296 [http-bio-8081-exec-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'uping-rest-servlet': startup date [Tue Feb 07 14:31:13 CST 2017]; parent: Root WebApplicationContext
+2017-02-07 14:31:14.443 [http-bio-8081-exec-1] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2017-02-07 14:31:14.485 [http-bio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'uping-rest': initialization completed in 998 ms
+2017-02-07 14:31:34.345 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization started
+2017-02-07 14:31:34.434 [localhost-startStop-1] INFO  o.s.web.context.support.XmlWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Tue Feb 07 14:31:34 CST 2017]; root of context hierarchy
+2017-02-07 14:31:34.486 [localhost-startStop-1] INFO  o.s.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring/spring-dao.xml]
+2017-02-07 14:31:34.680 [localhost-startStop-1] INFO  o.s.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring/spring-service.xml]
+2017-02-07 14:31:34.794 [localhost-startStop-1] INFO  o.s.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring/spring-jedis.xml]
+2017-02-07 14:31:35.066 [localhost-startStop-1] INFO  o.s.c.support.PropertySourcesPlaceholderConfigurer - Loading properties file from file [C:\Users\Administrator\IdeaProjects\UpingWang\upingwang_rest\target\classes\resource\db.properties]
+2017-02-07 14:31:35.066 [localhost-startStop-1] INFO  o.s.c.support.PropertySourcesPlaceholderConfigurer - Loading properties file from file [C:\Users\Administrator\IdeaProjects\UpingWang\upingwang_rest\target\classes\resource\resource.properties]
+2017-02-07 14:31:35.085 [localhost-startStop-1] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2017-02-07 14:31:35.539 [localhost-startStop-1] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2017-02-07 14:31:37.143 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2795 ms
+2017-02-07 14:33:22.539 [http-bio-8081-exec-7] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'uping-rest': initialization started
+2017-02-07 14:33:22.545 [http-bio-8081-exec-7] INFO  o.s.web.context.support.XmlWebApplicationContext - Refreshing WebApplicationContext for namespace 'uping-rest-servlet': startup date [Tue Feb 07 14:33:22 CST 2017]; parent: Root WebApplicationContext
+2017-02-07 14:33:22.546 [http-bio-8081-exec-7] INFO  o.s.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring/spring_mvc.xml]
+2017-02-07 14:33:22.690 [http-bio-8081-exec-7] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2017-02-07 14:33:22.876 [http-bio-8081-exec-7] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/index],methods=[GET]}" onto public java.lang.String com.upingwang.rest.controller.IndexController.index()
+2017-02-07 14:33:22.925 [http-bio-8081-exec-7] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.1.1.Final
+2017-02-07 14:33:23.135 [http-bio-8081-exec-7] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'uping-rest-servlet': startup date [Tue Feb 07 14:33:22 CST 2017]; parent: Root WebApplicationContext
+2017-02-07 14:33:23.196 [http-bio-8081-exec-7] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'uping-rest-servlet': startup date [Tue Feb 07 14:33:22 CST 2017]; parent: Root WebApplicationContext
+2017-02-07 14:33:23.304 [http-bio-8081-exec-7] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2017-02-07 14:33:23.333 [http-bio-8081-exec-7] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'uping-rest': initialization completed in 793 ms
+2017-02-07 14:38:06.223 [http-bio-8081-exec-1] WARN  org.springframework.web.servlet.PageNotFound - No mapping found for HTTP request with URI [/rest] in DispatcherServlet with name 'uping-rest'
+2017-02-07 14:38:15.376 [http-bio-8081-exec-1] WARN  org.springframework.web.servlet.PageNotFound - No mapping found for HTTP request with URI [/rest/] in DispatcherServlet with name 'uping-rest'
+2017-02-07 15:35:34.911 [http-bio-8081-exec-1] WARN  org.springframework.web.servlet.PageNotFound - No mapping found for HTTP request with URI [/rest/images/icons/logo.png] in DispatcherServlet with name 'uping-rest'
+2017-02-07 15:36:09.582 [http-bio-8081-exec-3] WARN  org.springframework.web.servlet.PageNotFound - No mapping found for HTTP request with URI [/rest/images/icons/logo.png] in DispatcherServlet with name 'uping-rest'
+2017-02-07 17:05:08.073 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization started
+2017-02-07 17:05:08.205 [localhost-startStop-1] INFO  o.s.web.context.support.XmlWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Tue Feb 07 17:05:08 CST 2017]; root of context hierarchy
+2017-02-07 17:05:08.251 [localhost-startStop-1] INFO  o.s.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring/spring-dao.xml]
+2017-02-07 17:05:08.594 [localhost-startStop-1] INFO  o.s.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring/spring-service.xml]
+2017-02-07 17:05:08.732 [localhost-startStop-1] INFO  o.s.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring/spring-jedis.xml]
+2017-02-07 17:05:08.985 [localhost-startStop-1] INFO  o.s.c.support.PropertySourcesPlaceholderConfigurer - Loading properties file from file [C:\Users\Administrator\IdeaProjects\UpingWang\upingwang_rest\target\classes\resource\db.properties]
+2017-02-07 17:05:08.986 [localhost-startStop-1] INFO  o.s.c.support.PropertySourcesPlaceholderConfigurer - Loading properties file from file [C:\Users\Administrator\IdeaProjects\UpingWang\upingwang_rest\target\classes\resource\resource.properties]
+2017-02-07 17:05:09.005 [localhost-startStop-1] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2017-02-07 17:05:09.683 [localhost-startStop-1] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2017-02-07 17:05:11.577 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 3500 ms
+2017-02-07 17:05:17.990 [http-bio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'uping-rest': initialization started
+2017-02-07 17:05:17.993 [http-bio-8081-exec-1] INFO  o.s.web.context.support.XmlWebApplicationContext - Refreshing WebApplicationContext for namespace 'uping-rest-servlet': startup date [Tue Feb 07 17:05:17 CST 2017]; parent: Root WebApplicationContext
+2017-02-07 17:05:17.994 [http-bio-8081-exec-1] INFO  o.s.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring/spring_mvc.xml]
+2017-02-07 17:05:18.164 [http-bio-8081-exec-1] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2017-02-07 17:05:18.341 [http-bio-8081-exec-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/index],methods=[GET]}" onto public java.lang.String com.upingwang.rest.controller.IndexController.index()
+2017-02-07 17:05:18.341 [http-bio-8081-exec-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/index/login],methods=[POST]}" onto public com.upingwang.common.result.JsonResult com.upingwang.rest.controller.IndexController.login(java.lang.String,java.lang.String)
+2017-02-07 17:05:18.341 [http-bio-8081-exec-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/index/interface],methods=[GET]}" onto public java.lang.String com.upingwang.rest.controller.IndexController.interfacePage()
+2017-02-07 17:05:18.406 [http-bio-8081-exec-1] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.1.1.Final
+2017-02-07 17:05:18.644 [http-bio-8081-exec-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'uping-rest-servlet': startup date [Tue Feb 07 17:05:17 CST 2017]; parent: Root WebApplicationContext
+2017-02-07 17:05:18.706 [http-bio-8081-exec-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'uping-rest-servlet': startup date [Tue Feb 07 17:05:17 CST 2017]; parent: Root WebApplicationContext
+2017-02-07 17:05:18.812 [http-bio-8081-exec-1] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2017-02-07 17:05:18.841 [http-bio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'uping-rest': initialization completed in 851 ms
+2017-02-07 17:11:39.411 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization started
+2017-02-07 17:11:39.512 [localhost-startStop-1] INFO  o.s.web.context.support.XmlWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Tue Feb 07 17:11:39 CST 2017]; root of context hierarchy
+2017-02-07 17:11:39.560 [localhost-startStop-1] INFO  o.s.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring/spring-dao.xml]
+2017-02-07 17:11:39.793 [localhost-startStop-1] INFO  o.s.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring/spring-service.xml]
+2017-02-07 17:11:40.000 [localhost-startStop-1] INFO  o.s.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring/spring-jedis.xml]
+2017-02-07 17:11:40.408 [localhost-startStop-1] INFO  o.s.c.support.PropertySourcesPlaceholderConfigurer - Loading properties file from file [C:\Users\Administrator\IdeaProjects\UpingWang\upingwang_rest\target\classes\resource\db.properties]
+2017-02-07 17:11:40.409 [localhost-startStop-1] INFO  o.s.c.support.PropertySourcesPlaceholderConfigurer - Loading properties file from file [C:\Users\Administrator\IdeaProjects\UpingWang\upingwang_rest\target\classes\resource\resource.properties]
+2017-02-07 17:11:40.440 [localhost-startStop-1] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2017-02-07 17:11:41.139 [localhost-startStop-1] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2017-02-07 17:11:42.705 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 3291 ms
+2017-02-07 17:11:42.956 [http-bio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'uping-rest': initialization started
+2017-02-07 17:11:42.960 [http-bio-8081-exec-1] INFO  o.s.web.context.support.XmlWebApplicationContext - Refreshing WebApplicationContext for namespace 'uping-rest-servlet': startup date [Tue Feb 07 17:11:42 CST 2017]; parent: Root WebApplicationContext
+2017-02-07 17:11:42.961 [http-bio-8081-exec-1] INFO  o.s.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring/spring_mvc.xml]
+2017-02-07 17:11:43.107 [http-bio-8081-exec-1] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2017-02-07 17:11:43.287 [http-bio-8081-exec-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/index],methods=[GET]}" onto public java.lang.String com.upingwang.rest.controller.IndexController.index()
+2017-02-07 17:11:43.287 [http-bio-8081-exec-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/index/interface],methods=[GET]}" onto public java.lang.String com.upingwang.rest.controller.IndexController.interfacePage()
+2017-02-07 17:11:43.288 [http-bio-8081-exec-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/index/login],methods=[POST]}" onto public com.upingwang.common.result.JsonResult com.upingwang.rest.controller.IndexController.login(java.lang.String,java.lang.String)
+2017-02-07 17:11:43.342 [http-bio-8081-exec-1] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.1.1.Final
+2017-02-07 17:11:43.579 [http-bio-8081-exec-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'uping-rest-servlet': startup date [Tue Feb 07 17:11:42 CST 2017]; parent: Root WebApplicationContext
+2017-02-07 17:11:43.648 [http-bio-8081-exec-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'uping-rest-servlet': startup date [Tue Feb 07 17:11:42 CST 2017]; parent: Root WebApplicationContext
+2017-02-07 17:11:43.768 [http-bio-8081-exec-1] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2017-02-07 17:11:43.800 [http-bio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'uping-rest': initialization completed in 844 ms
+2017-02-07 17:15:21.050 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization started
+2017-02-07 17:15:21.134 [localhost-startStop-1] INFO  o.s.web.context.support.XmlWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Tue Feb 07 17:15:21 CST 2017]; root of context hierarchy
+2017-02-07 17:15:21.184 [localhost-startStop-1] INFO  o.s.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring/spring-dao.xml]
+2017-02-07 17:15:21.362 [localhost-startStop-1] INFO  o.s.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring/spring-service.xml]
+2017-02-07 17:15:21.494 [localhost-startStop-1] INFO  o.s.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring/spring-jedis.xml]
+2017-02-07 17:15:21.755 [localhost-startStop-1] INFO  o.s.c.support.PropertySourcesPlaceholderConfigurer - Loading properties file from file [C:\Users\Administrator\IdeaProjects\UpingWang\upingwang_rest\target\classes\resource\db.properties]
+2017-02-07 17:15:21.756 [localhost-startStop-1] INFO  o.s.c.support.PropertySourcesPlaceholderConfigurer - Loading properties file from file [C:\Users\Administrator\IdeaProjects\UpingWang\upingwang_rest\target\classes\resource\resource.properties]
+2017-02-07 17:15:21.772 [localhost-startStop-1] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2017-02-07 17:15:22.532 [localhost-startStop-1] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2017-02-07 17:15:23.892 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2839 ms
+2017-02-07 17:15:32.007 [http-bio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'uping-rest': initialization started
+2017-02-07 17:15:32.011 [http-bio-8081-exec-1] INFO  o.s.web.context.support.XmlWebApplicationContext - Refreshing WebApplicationContext for namespace 'uping-rest-servlet': startup date [Tue Feb 07 17:15:32 CST 2017]; parent: Root WebApplicationContext
+2017-02-07 17:15:32.012 [http-bio-8081-exec-1] INFO  o.s.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring/spring_mvc.xml]
+2017-02-07 17:15:32.173 [http-bio-8081-exec-1] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2017-02-07 17:15:32.354 [http-bio-8081-exec-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/index],methods=[GET]}" onto public java.lang.String com.upingwang.rest.controller.IndexController.index()
+2017-02-07 17:15:32.355 [http-bio-8081-exec-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/index/login],methods=[POST]}" onto public com.upingwang.common.result.JsonResult com.upingwang.rest.controller.IndexController.login(java.lang.String,java.lang.String)
+2017-02-07 17:15:32.355 [http-bio-8081-exec-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/index/interface],methods=[GET]}" onto public java.lang.String com.upingwang.rest.controller.IndexController.interfacePage()
+2017-02-07 17:15:32.410 [http-bio-8081-exec-1] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.1.1.Final
+2017-02-07 17:15:32.645 [http-bio-8081-exec-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'uping-rest-servlet': startup date [Tue Feb 07 17:15:32 CST 2017]; parent: Root WebApplicationContext
+2017-02-07 17:15:32.718 [http-bio-8081-exec-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'uping-rest-servlet': startup date [Tue Feb 07 17:15:32 CST 2017]; parent: Root WebApplicationContext
+2017-02-07 17:15:32.840 [http-bio-8081-exec-1] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2017-02-07 17:15:32.871 [http-bio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'uping-rest': initialization completed in 863 ms
+2017-02-07 17:15:39.958 [http-bio-8081-exec-10] WARN  org.springframework.web.servlet.PageNotFound - No mapping found for HTTP request with URI [/rest/interface] in DispatcherServlet with name 'uping-rest'
+2017-02-07 17:16:15.235 [http-bio-8081-exec-10] WARN  org.springframework.web.servlet.PageNotFound - No mapping found for HTTP request with URI [/rest/interface] in DispatcherServlet with name 'uping-rest'
+2017-02-07 17:20:11.191 [http-bio-8081-exec-5] WARN  org.springframework.web.servlet.PageNotFound - No mapping found for HTTP request with URI [/rest/interface] in DispatcherServlet with name 'uping-rest'
